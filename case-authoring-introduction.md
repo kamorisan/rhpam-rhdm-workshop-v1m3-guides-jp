@@ -1,47 +1,51 @@
 # 5. ケースプロジェクトの作成
 
-In this section we'll go through:
+このセクションでは、以下の内容について説明します:
 
-1. The business pre-requisites to author your first case.
-2. The roles and variables of this case.
+1. ケースを作成するための業務の前提条件
+2. このケースの役割と変数
 
-## Overview
-The first step when automating a process is to explicitly define the various steps and structure of the process.
+## 概要
+プロセスを自動化する場合の最初のステップは、プロセスの様々なステップと構造を明示的に定義することです。
 
-What happens when a Credit Card Holder starts a dispute? A Credit Card Dispute process is not a straightforward process. It usually don't start at point A and then follow the path to point B, all the way through the process in a fully pre-defined, structured, flow. What happens is, depending on the *human decisions* made during the execution the of process instance, and most importantly, the data of the case, it will jump back and forth between different steps and different _actors_ to solve the dispute.
+クレジットカード所持者がチャージバックの申請を行うと、どうなるのか？
+チャージバック申請の処理は一筋縄ではいきません。
+事前に定義された、構造化された流れの中でプロセスを進行していくことはありません。
+プロセスインスタンスの実行中に行われた *人間の意思決定* に応じて、そして最も重要なのは、ケースのデータに応じて、それはチャージバック申請を解決するために、異なるステップと異なる _登場人物_ の間を行ったり来たりします。
 
-_NOTE: Feel free to review the use case overview (Module 2, item 2) where all the Actors are listed and defined._
+_NOTE: 本モジュールのセクション2.ユースケースについて にて、ユースケースの概要と登場人物の詳細について紹介しているので、適宜確認してみてください。_
 
-Since this is a dynamic, unstructured, and data-driven process, the best way to model it is as a _case_.
+これは動的で、構造化されていない、データ駆動型のプロセスなので、モデル化するための最良の方法は、`ケース` としてモデル化することです。
 
-In this specific _case_ we have a goal, i.e. to solve the dispute, but the steps and the order that will lead to this goal cannot be predicted. One of the steps we know is that the _Issuer_ will gather information from the Credit Card Holder and the Merchant to store it in the _Case File_.
+この特定の `ケース` では、チャージバック申請を解決するというゴールがありますが、そのゴールに至るまでの手順や順序を予測することはできません。
+私たちが知っているステップの一つは、_クレジットカード発行者_ がクレジットカード所有者とカード加盟店から情報を収集し、_ケースファイル_ に保存することです。
 
-_NOTE: In real life the ***Issuer*** would deal with the Credit Card Processor and not the merchant directly, but for the sake of simplicity we will just take the merchant into account._
+_NOTE: 実際には、***クレジットカード発行者*** はクレジットカード処理業者（アクワイアラー）と取引を行い、カード加盟店とは直接取引を行いませんが、簡単のために加盟店を考慮に入れています。_
 
 ![Business Central CC Dispute Diagram Users]({% image_path business-central-cc-dispute-diagram-users.png %}){:width="400px"}
 
-## Authoring tool
+## オーサリングツール
 
-To model cases and processes, Business Central provides a web-based BPMN2 designer. Let's explore the process and case designer in more details:
+ケースとプロセスをモデル化するために、Business Central はWebベースのBPMN2デザイナーを提供しています。プロセスとケースのデザイナーについて詳しく見てみましょう:
 
 ![Business Central Designer Explained - Stunner]({% image_path business-central-stunner-explained.png %}){:width="800px"}
 
-Let's understand a little bit more about each component:
+それぞれの要素について、もう少し理解しておきましょう:
 
-1. _Modelling Canvas_: This is your drawing board. After dropping different shapes onto the canvas, you can move them around, connect them, etc. Clicking on a shape on the canvas allows you to set its properties in the expandable Properties Window (3). You can also rename the elements, create connecting shapes and morph the shape into other task types.
+1. _モデリングキャンバス_: これはあなたの描画ボードです。キャンバス上にさまざまなオブジェクトをドロップした後、オブジェクトを移動させたり、連結したりすることができます。キャンバス上のオブジェクトをクリックすると、拡張可能なプロパティウィンドウでそのプロパティを設定することができます(3)。また、オブジェクトの名前を変更したり、接続するオブジェクトを作成したり、オブジェクトを他のタスクタイプに変形させたりすることもできます。
 
-2. _Toolbar_: The toolbar contains a vast number of functions offered by the designer. These includes operations that can be performed on shapes present on the canvas. Individual operations are disabled or enabled depending on what is selected. For example, if no shapes are selected, the Cut/Paste/Delete operations are disabled, and become enabled once you select a shape. Hovering over the icons in the Toolbar displays the description text of the operation.
+2. _ツールバー_: ツールバーには、デザイナーが提供する膨大な数の機能が含まれています。これらには、キャンバス上に存在するオブジェクトに対して実行できる操作が含まれています。個々の操作は、選択されている内容に応じて無効化または有効化されます。例えば、オブジェクトが選択されていない場合、切り取り/貼り付け/削除の操作は無効になっており、オブジェクトを選択すると有効になります。ツールバーのアイコンにカーソルを合わせると、操作の説明テキストが表示されます。
 
-3.  _Properties Panel_: This expandable section on the right side of the designer allows you to set both process and shape properties. After clicking on a shape in the canvas, this panel is reloaded to show properties specific to that shape type. If you click on the canvas itself (not on a shape) the panel displays general process properties.
+3. _プロパティパネル_: デザイナーの右側にあるこの拡張可能なセクションでは、プロセスとオブジェクトの両方のプロパティを設定することができます。キャンバス内のオブジェクトをクリックすると、このパネルがリロードされ、そのオブジェクトタイプに固有のプロパティが表示されます。キャンバス自体（オブジェクト上ではなく）をクリックすると、パネルには一般的なプロセスプロパティが表示されます。
 
-4.  _Object Library Panel_: The expandable section on the left side of Designer shows the BPMN2 (default) elements tree. It includes all shapes of RHPAM BPMN2 stencil set which can be used to assemble your processes and cases. If you expand each section sub-group you can see the elements that can be placed onto the canvas (1) by dragging and dropping the shape onto it.
+4. _オブジェクトライブラリパネル_: デザイナーの左側にある拡張可能なセクションは、BPMN2（デフォルト）要素ツリーを示しています。これには、プロセスやケースを組み立てるのに使用できるRHPAM BPMN2のテンプレートが含まれています。各セクションのサブグループを展開すると、オブジェクトをドラッグ＆ドロップすることでキャンバス(1)に配置することができます。
 
-5. _View Tabs_: Currently, the designer offers three tabs: Model, Overview and Documentation. Model is the default tab. Overview shows the asset history, comments and more metadata. The Documentation tab displays documentation generated from process definition.
+5. _ビュー タブ_: 現在、デザイナーは3つのタブを提供しています。モデル、概要、ドキュメントです。モデルはデフォルトのタブです。概要は、アセットの履歴、コメント、その他のメタデータを表示します。ドキュメント タブには、プロセス定義から生成されたドキュメントが表示されます。
 
-6. _Alerts Tabs_: There is a section at the bottom of Designer where Business Central shows alerts about process and code validation warnings and errors found during the project builds.
+6. _アラート タブ_: デザイナー の下部には、Business Central がプロジェクトのビルド中に見つかったプロセスやコードの検証に関する警告やエラーに関するアラートを表示するセクションがあります。
 
 
-## Case Variables and Roles
+## ケースの変数と役割
 
 We have defined the _Business Object Model_ and the _Business Decisions_ in the previous lab. If you've completed the labs of Module 2,  you can use your existing project.
 
