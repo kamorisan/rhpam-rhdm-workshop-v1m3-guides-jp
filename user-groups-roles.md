@@ -28,23 +28,23 @@ Business Centralでは、ユーザーが実行できる（または実行しな�
 
   ![Settings Menu]({% image_path settings-menu.png %}){:width="600px"}
 
-3. Click the `Groups` option and you'll see the group administration menu, where you can list the groups that currently exist, update or delete them or create a new group.
+3. `グループ` オプションをクリックすると、グループ管理メニューが表示され、現在存在するグループの一覧を表示したり、更新や削除、新規グループの作成を行うことができます。
 
   ![Groups Menu]({% image_path groups-menu.png %}){:width="600px"}
 
-3. Click on `New Group`. The name group is `card-holder`{{copy}}.
+4. `新規グループ` をクリックします。 グループ名に `card-holder`{{copy}} と入力して、`次へ` をクリックします。
 
-4. After you type in the name of the group, in this case `card-holder`{{copy}}, select the `pamAdmin` and click on `Add selected users` to add it to the `card-holder` group.
+5. グループ名(この場合は `card-holder`{{copy}}}を入力した後、`pamAdmin` を選択し、`選択したユーザーを追加する` をクリックして `card-holder` グループに追加します。
 
-  _In a real world scenario all these groups will be associated with different personas but for the sake of simplicity, your user will be part of all the groups needed, in order for you to be able to test the processes and application._
+  _実際のシナリオでは、これらのグループはすべて異なるユーザーに関連付けられていますが、プロセスとアプリケーションの両方を簡単にテストできるようにするために、必要なすべてのグループにあなたのユーザーを追加しておきます。_
 
-5. Now, repeat the steps and create the group `approval-manager`. 
+6. 次に、同じ手順で `approval-manager` をグループに作成して追加します。
 
-At the end you should have two aditional groups:
+これで、あなたは2つの追加されたグループを持っているはずです:
 
 - `card-holder`{{copy}}
 - `approval-manager`{{copy}}
 
 ![User Groups Settings Menu]({% image_path user-groups-settings-menu.png %}){:width="600px"}  
 
-**You have successfully completed the groups configuration of your environment.**
+**これで、環境におけるグループの設定が正常に完了しました。**
