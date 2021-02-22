@@ -7,7 +7,7 @@ modules:
   use-case-overview:
     name: ユースケースについて
   case-management-overview:
-    name: What is Case Management    
+    name: ケース管理の概要
   user-groups-roles:
     name: Configuring Users and Roles    
   case-authoring-introduction:

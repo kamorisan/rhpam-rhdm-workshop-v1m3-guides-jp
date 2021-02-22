@@ -1,32 +1,45 @@
-# 3. Case Management Overview
+# 3. ケース管理の概要
 
-Case Management is a useful technique used when processes cannot be fully predicted and defined up front. Some of the common scenarios of Case Management is to have a dynamic and data-driven execution, where there is no structured path from the start of case instance to the completion of the case. A `case` represents a situation without necessarily requiring a structured process. A `case` can consist of smaller, repeatable process fragments, that can either be structured, dynamic, or a mix of both.
+ケース管理は、プロセスを完全に予測し、前もって定義することができない場合に使用される便利な技術です。
+ケース管理の一般的なシナリオは、ケースインスタンスの開始からケースの完了までの構造化されたパスが存在しない、動的でデータ駆動型の実行形式を持っています。
+`ケース` は、必ずしも構造化されたプロセスを必要としない状況を表現します。
+`ケース` は、構造化されたプロセス、動的なプロセス、またはその両方を組み合わせた小さな繰り返し可能なプロセスの断片で構成されています。
 
-A Case Management Modeling and Notation (CMMN) standard has been defined by the OMG (Object Management Group, the same organization that is behind the BPMN2 standard). This standard is aimed at modeling unstructured and dynamic cases, as opposed to BPMN2, which focusses on structured processes. Although Red Hat Process Automation Manager implements the CMMN specification, at Red Hat we believe that there is no well defined boundary between structured and unstructured processes. Instead, the space can be defined as a spectrum.
+Case Management Modeling and Notation（CMMN）標準は、OMG（Object Management Group、BPMN2標準の背後にあるのと同じ組織）によって定義されています。
+この標準は、構造化されたプロセスに焦点を当てた BPMN2 とは対照的に、構造化されていない動的なケースをモデリングすることを目的としています。
+Red Hat Process Automation ManagerはCMMN仕様を実装していますが、Red Hatでは、構造化プロセスと非構造化プロセスの間には明確に定義された境界がなく、スペクトルとして定義することができると考えています。
 
 ![Business Central RHPAM 7 CMMN PAM]({% image_path business-central-rhpam-7-cmmn-pam.png %}){:width="800px"}
 
-As such, we believe that BPMN2, with a number of very subtle additions, is well suited to define processes and cases within the entire spectrum. In fact, there is an ongoing debate within the industry to [unify BPMN and CMMN](https://methodandstyle.com/bpmn-cmmn-compared/).
+そのため、BPMN2 に、いくつかの追加を加えることで、全領域のプロセスやケースを定義するのに適したものになると考えています。
+実際、業界内では[BPMNとCMMNを統一する](https://methodandstyle.com/bpmn-cmmn-compared/){:target="_blank"} という議論が進行中です。
 
-## Case Management Terminology
+## ケース管理に関する用語
 
 Case Management introduces a number of additional concepts and terminologies on top of business process management.
+ケース管理では、ビジネスプロセス管理の上に、いくつかの概念や用語を追加で紹介しています。
 
-In this lab there are a number of key components that we will use, which we will introduce here:
+このモジュールで使用する、いくつかの重要なコンポーネントを紹介します:
 
-- _Case File_: Specific to case management. The Case information is represented by the _Case File_. It contains _Case File Items_ that can be any type of data structure, _Case File_ serves as the context for raising events and evaluating Expressions, as well as point of reference to guide the execution of the process. All the data, including documents that we need to get to be able to solve the dispute, will be stored in the _Case File_.
-- _Stage_: Specific to case management.  Stages may be considered “episodes” of a Case, though Case models allow for defining Stages that can be planned in parallel as well. You would normally group tasks that logically belong together in a stage.
-- _Milestone_: Specific to case management. Milestone represents an achievable target, defined to enable evaluation of progress of the Case. No work is directly associated with a Milestone, but completion of set of tasks or the availability of key deliverables (information in the Case File) typically leads to achieving a Milestone.
-- _Human Task_: Is a Task that is performed by a Case worker.
-- _Process Task_: Can be used in the Case to call a Business Process.
-- _Decision Task_: Can be used in the Case to invoke a Decision. A Decision in CMMN is an abstraction of Decisions as they are specified in various Decision Modeling specifications.
+- _ケースファイル_: ケース管理で、ケースインスタンス全体に対するデータリポジトリーとして使用されます。これには、すべてのロールと、オブジェクト自身、データマップ、その他のデータが含まれます。ケースは、同じケースファイルを添付した状態で閉じたり、後日に再開したりできます。ケースインスタンスはいつでも閉じることができ、「完了」するための特別な解決策は必要ありません。
+- _ステージ_: ステージはタスクの集まりです。ステージは、プロセスデザイナーを使用して定義できるアドホックサブプロセスで、マイルストーンなどの、別のケース管理ノードに含まれる可能性もあります。
+- _マイルストーン_: マイルストーンは、ケースの進捗状況を評価できるように定義された、達成可能な目標を表します。マイルストーンに直接関連する仕事はありませんが、一連のタスクの完了や主要な成果物（ケースファイルの情報）の利用可能性は、一般的にマイルストーンの達成につながります。
+- _ヒューマンタスク_: ケースワーカーが実行するタスクです。
+- _プロセスタスク_: ビジネスプロセスを呼び出すためのケースで使用できます。
+- _デシジョンタスク_: Can be used in the Case to invoke a Decision. A Decision in CMMN is an abstraction of Decisions as they are specified in various Decision Modeling specifications.デシジョンを呼び出すためにケースで使用することができます。
 
-As mentioned before, a case has a more dynamic lifecycle than a regular process. In a regular process the final state is: finalized. This can be due to completeness, error, or abortion of the process instance, but once the process is terminated you can't restart it. This is different in a case management platform. In case management, case owners are able to, for example, re-open a completed case. A use-case can, for example,  be to re-open a dispute case when the credit-card holder is not happy with the outcome of the dispute. In the following picture we can see the lifecycle of a case and the operations we can execute agains it.
+ケースは通常のプロセスよりもダイナミックなライフサイクルを持っています。
+通常のプロセスでは、最終的な状態は `完結` です。
+これは、プロセスインスタンスの完全性、エラー、または中止が原因である可能性もありますが、一度プロセスが終了すると、それを再起動することはできません。
+これは、ケース管理プラットフォームでは異なります。
+ケース管理では、ケースオーナーは、例えば、完了したケースを再オープンすることができます。
+例えば、クレジットカード所有者がチャージバック申請の結果に満足していない場合に、チャージバック申請のケースを再オープンすることができます。
+次の図は、ケースのライフサイクルとそれに対して実行できる操作を示しています。
 
 ![Business Central Case  Lifecycle]({% image_path business-central-case-lifecycle.png %}){:width="400px"}
 
-## Conclusion
+## おわりに
 
-The capability of adding tasks during runtime, having a case file shared among all instances, having dynamic roles per case instance, and being able to track the achieved milestones of an ongoing work, are common requirements use cases among different sector like finance and health care. 
+ランタイム中にタスクを追加したり、すべてのインスタンス間でケースファイルを共有したり、ケースインスタンスごとにダイナミックなロールを持っていたり、進行中の作業のマイルストーンを追跡したりする機能は、金融やヘルスケアなどのさまざまな分野で共通の要件となっています。
 
-Now that you are aware of some of the concepts involved on a case management definition, let's start with some authoring.
+さて、ケース管理の定義に関わる概念のいくつかを理解したところで、作成を始めてみましょう。
