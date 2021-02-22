@@ -1,11 +1,12 @@
-# 1. Introduction
+# 1. イントロダクション
 
-This is a Case Management lab in which will implement a Credit Card Dispute case.
-The process will use `BPMN2` constructs like `Milestones`, `User Tasks`, `Gateways`, combined with decision-based routing based on `Business Rules Tasks`.
+このモジュールでは、クレジットカードのチャージバック申請処理を行うためのケース管理を実装します。
+このプロセスでは、`マイルストーン`、`ユーザータスク`、`Gateways` のような `BPMN2` の構成要素と、`Business Rules Tasks` に基づくデシジョンやルールを組み合わせて使用します。
 
 It introduces the dynamic concepts of the Red Hat Process Automation Manager case management support, like `autostart semantics` and `casefile-based milestone completion`.
+`autostart semantics` や `casefile-based milestone completion` のような、Red Hat Process Automation Manager のケースマネジメントサポートの動的な概念を紹介します。
 
-**Topics covered in this module:**
+**このモジュールでカバーされているトピック：**
 
 * How to **author cases** in Red Hat Process Automation Manager;
 * How to define and **create domain models** using the Data Modeler.
