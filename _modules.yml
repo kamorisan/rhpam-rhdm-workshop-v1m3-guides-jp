@@ -3,9 +3,9 @@ config:
 
 modules:
   intro:
-    name: Introduction
+    name: イントロダクション
   use-case-overview:
-    name: Use Case Introduction
+    name: ユースケースについて
   case-management-overview:
     name: What is Case Management    
   user-groups-roles:

@@ -1,78 +1,85 @@
-# 2. The Use Case
+# 2. ユースケースについて
 
-You are a business automation specialist consultant who was hired by a credit card issuer company, Pecunia Corp. They need you to automate a critical scenario: the _Credit Card Dispute_.
+あなたは、クレジットカード発行会社である Pecunia Corp. に採用された、ビジネスオートメーションのスペシャリストコンサルタントです。
+彼らは、重要なシナリオである _チャージバック申請処理_ を自動化することを必要としています。
 
-A credit card dispute is initiated by a credit card owner whenever there is a non-recognized transaction or an incorrect charge.
+チャージバック申請処理は、認識のない取引や誤った請求があった場合に、クレジットカードの所有者によって開始されます。
 
-You should be able to automate the process by creating a flexible process and by automating the decision logic using a more natural language.
+柔軟なプロセスを作成し、より自然な言語を使用して決定ロジックを自動化することで、プロセスを自動化できるようにしなければなりません。
 
-## Business Background
+## ビジネスの背景
 
-Pecunia Corp. is a credit card issuer company going through digital transformation. It is now adopting business automation to improve the performance of internal processes, reduce costs and increase customer satisfaction.
+Pecunia Corp. は、デジタルトランスフォーメーションを進めるクレジットカード発行会社です。
+同社は現在、社内プロセスのパフォーマンスを向上させ、コストを削減し、顧客満足度を向上させるために、ビジネスオートメーションを採用しています。
 
-With that in mind, let's talk about the internal **processing** and **decisions** that happens when a CC Holder (customer) opens a new credit card dispute:
+このことを念頭に置いて、クレジットカード所持者（顧客）が新しいチャージバック申請を開いたときに起こる内部の **プロセス** と* **デシジョン** についてお話ししましょう:
 
-1. New Dispute created: The Credit Card Holder starts a dispute with the CC Issuer.
+1. 新しいチャージバック申請が作成されました。クレジットカード所有者は、クレジットカード発行者との間で手続きを開始します。
 
-2. Define type of processing: The CC Issuer needs to decide what type of processing is required for the dispute (automated chargeback or normal processing). _This decision either leads to step 2.1. or 2.2._
+2. プロセスのタイプを定義する。クレジットカード発行者は、どのようなタイプのプロセスが必要か（自動チャージバック処理か通常の処理か）を決定する必要がある。_この決定は、Step2.1 または 2.2のいずれかに進む。_
 
-    2.1. Automated processing: the CC Issuer process the automated chargeback. _This leads to step 4.1._
+    2.1. 自動処理: クレジットカード発行者がチャージバックを自動処理します。 _この場合は、Step4.1に進む。_
 
-    2.2. Standard Processing: The CC Issuer needs to do standard processing. A risk assessment for the dispute is required.
+    2.2. 通常処理: クレジットカード発行者が通常処理を行う必要がある場合には、チャージバックのリスク評価が必要です
 
-3. Risk Assessment: CC Issuer assesses the risk of the dispute based on the provided data (credit card holder status, dispute amount, etc.).
+3. リスク評価: クレジットカード発行者は、提供されたデータ（クレジットカード保有者の状況、チャージバック申請額など）に基づいて、チャージバックのリスクを評価します。
 
-    3.1. Needs approval: The CC Issuer requests a manual approval for the dispute from a knowledge worker. _This can lead to step 4.1. or 4.2_
+    3.1. 承認手続き: クレジットカード発行者は、ナレッジワーカーにチャージバックの手動承認を要求する。
 
-    3.2. Issue Resolved: The CC Issuer based on the data resolves the case by either accepting or rejecting the dispute. _This can lead to step 4.1. or 4.2_
+    3.2. 申請処理の完了: データに基づいて、チャージバック申請を受理または拒否することにより、本件を完了する。 _この場合は、Step4.1 または Step4.2に進むことができる。_
 
-4. Dispute is resolved
+4. チャージバック申請の完了
 
-    4.1. Dispute accepted: The dispute is accepted and the money reimbursed to the CC Holder and the backoffice chargeback for fee transactions started.
+    4.1. チャージバック申請を受理して、クレジットカード所持者への返金と手数料取引のプロセスが開始されます。
 
-    4.2. Dispute Rejected: The dispute is rejected.
+    4.2. チャージバック申請の拒否: チャージバック申請は拒否されます。
 
-5. Send Notification: The CC Issuer informs the CC Holder of the result.
+5. 結果の通知: クレジットカード発行者は、結果をクレジットカード所持者へ通知します。
 
-Let's see more details below with steps numbered according to the list above:
+上記のリストに沿って番号を付けて、以下の詳細を見てみましょう:
 
-- A new dispute is created, processed, solved, and the customer gets notified.:
+- 新しいチャージバック申請が作成され、処理され、解決され、顧客に通知されます:
 
 ![Use Case Overview]({% image_path use-case-overview.png %}){:width="800px"}
 
-- During the internal solving, it can be processed automatically or manually based on the existing data:
+- 内部での処理は、既存のデータに基づいて自動または手動で処理することができます:
 
 ![Automated Processing]({% image_path use-case-automated-processing.png %}){:width="800px"}
 
-- If manually processed, based on the risk assessmentm it can be sent for a knowledge worker for approval:
+- 手動処理とされた場合は、リスク評価に基づいて、承認のためにナレッジワーカーに依頼を送ることとなります:
 
 ![Standard Processing]({% image_path use-case-standard-processing.png %}){:width="800px"}
 
-Most of the complexity with the CC Dispute process comes from the fact that is a multi-step process where every dispute is a one-off situation, the actual outcome of the dispute is a result of the interactions between the different actors and the decision logic. On top of that, the information regarding the case should be available with every interaction. Everyone needs to look at the same data and be observers of updates in it.
+チャージバック申請プロセスが複雑になる要因は、マルチステップのプロセスであるという事実に起因しています。
+その上で、プロセスに関する情報は、互いに利用可能でなければなりません。
+誰もが同じデータを見て、その進捗を観察する必要があります。
 
-### Decision Automation
+### 意思決定の自動化
 
-On the step two, the _CC Issuer_ should analyse a set of data in order to define if the dispute can be automatically processed or not. This is a repeatable decision that is currently being made manually for every dispute.
+Step2では、_クレジットカード発行者_ は、チャージバック申請が自動処理できるかどうかを判断するために、一連のデータを分析しなければなりません。これは、現在、チャージバック申請ごとに手動で行われている判断です。
 
-Pecunia Corp. wants to give benefits to strategic customers by creating a loyalty program. The risk can be defined based on the loyalty level and on the dispute value, an automatic chargeback can be made, leading to a faster response to customers and lower costs on the overall process.
+Pecunia Corp.は、ロイヤリティプログラムを作成することで、お得意様にメリットを与えたいと考えています。
+リスクはロイヤルティレベルとチャージバック申請の金額に基づいて定義することができ、自動的にチャージバックを行うことができ、顧客への迅速な対応と全体的なプロセスのコスト削減につながります。
 
-This is the set of rules that can be used to determine the risk involved on the transaction:
+これは、取引に関わるリスクを決定するために使用できるルールのセットです。
 
-- _For a standard customer, and a dispute amount between 0 and 100, the risk is low._
-- _For a standard customer, and a dispute amount between 100 and 500, the risk is medium_
-- _For a standard customer, and a dispute amount above 500, the risk is high._
-- _For a silver customer, and a dispute amount below 250, the risk is low._
-- _For a silver customer, and a dispute amount between 250 and 500, the risk is medium._
-- _For a silver customer, and a dispute amount above 500, the risk is high._
-- _For a gold customer, and a dispute amount below 500, the risk is low._
-- _For a gold customer, and a dispute amount over 500, the risk is medium._
-
-
-#### Functional Requirements:
-
-Have business rules that will take into account consistent criteria defined to assess risk and automate processing. The business user must have the ability to change these criteria anytime if needed, and apply the changes according to the release process of Pecunia Corp.. 
+- カード種別が **Standard** で、チャージバック申請金額が **100 未満** の場合、リスクは **low**
+- カード種別が **Standard** で、チャージバック申請金額が **100 以上、 500 未満** の場合、リスクは **medium**
+- カード種別が **Standard** で、チャージバック申請金額が **500 以上** の場合、リスクは **high**
+- カード種別が **Silver** で、チャージバック申請金額が **250 未満** の場合、リスクは **low**
+- カード種別が **Silver** で、チャージバック申請金額が **250 以上、 500 未満** の場合、リスクは **medium**
+- カード種別が **Silver** で、チャージバック申請金額が **500 以上** の場合、リスクは **high**
+- カード種別が **Gold** で、チャージバック申請金額が **500 未満** の場合、リスクは **low**
+- カード種別が **Gold** で、チャージバック申請金額が **500 以上** の場合、リスクは **medium**
 
 
-#### Non Functional:
+#### 機能要件:
 
-Allow the user to change the criteria without technical assistance. Have the tooling for the user to update the rules but using standard spreadsheet-like decision tables or quasi natural language.
+リスクを評価し、処理を自動化するため、業務要件を標準化し定義されたビジネスルールを持つこと。
+業務ユーザーは、必要に応じてこれらの基準をいつでも変更することができ、Pecunia Corp. のリリースプロセスに従って変更を適用することができる必要があります。
+
+
+#### 非機能要件:
+
+業務ユーザーが技術的な支援なしに基準を変更できるようにする。
+そのため、標準的なスプレッドシートのようなデシジョンテーブルや、擬似自然言語を使用して、業務ユーザーがルールを更新できるようにするためのツールを用意します。
