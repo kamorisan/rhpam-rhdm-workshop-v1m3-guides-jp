@@ -1,25 +1,27 @@
-# 4. Users, Groups and Roles within Red Hat PAM
+# 4. ユーザーとロールの設定
 
-Red Hat Process Automation Manager security system is based on users, roles and groups. These configurations comes by default from the application server PAM is running on top of, in this case Red Hat Enterprise Application Server (Red Hat EAP).  
-When working in an enterprise architecture, it is recommended to connect RHPAM to an external provider like an enterprise LDAP system or an identity provider like Red Hat Single Sign On (a.k.a. Keycloak).
+Red Hat Process Automation Manager のセキュリティシステムは、ユーザー、ロール、グループに基づいています。
+これらの設定は、PAM を実行しているアプリケーションサーバー（この場合は Red Hat Enterprise Application Server (Red Hat EAP)）からデフォルトで提供されます。 
+エンタープライズアーキテクチャで作業する場合、RHPAM をエンタープライズ LDAP システムや Red Hat Single Sign On (別名 Keycloak) のような外部プロバイダに接続することをお勧めします。
 
-In this lab, we will learn how to use the out-of-the-box security management system of Red Hat Process Automation Manager to create new users and groups, which we need to implement our use-case.
+このセクションでは、Red Hat Process Automation Manager のすぐに使えるセキュリティ管理システムを使用して、ユースケースを実装するために必要な新しいユーザーとグループを作成する方法を学びます。
 
-In RHPAM, you have 2 different types of users:
+RHPAMでは、2種類のユーザーが存在します:
 
-- **platform users**: these are the users that interact with Business Central, the authoring environment, for example the `pamAdmin` user that you used to log in to the workbench;
+- **platform users** : これらのユーザーは、Business Central、つまりオーサリング環境と対話するユーザーです。例えば、Business Centralへのログインに使用した `pamAdmin` などです。
 
-- **application users**: these are the users that will interact with the process driven application that you're building with, and running on, the platform. In the case of our _Credit Card Dispute_ system, we will need two different roles that should interact with the process: 
-	- the **CC Holder** and 
-	- the **Approval Manager** who works in Pecunia Corp.
+- **application users** : これらはプロセス駆動型のアプリケーションを構築し、プラットフォーム上で実行する際に必要なユーザーのことです。_チャージバック申請_ 処理システムの場合、プロセスと対話する2つの異なるロールが必要になります:
+	- **クレジットカード所持者*
+	- Pecunia Corp. で働く、 **承認権限のあるマネージャー** 
 
-In fact, we can see these are not individual users, but groups that the different user can belong to. Our bank has these 2 groups defined, and the tasks for each group will be defined and configured as you automate the process.
+実際には、これらは個々のユーザーではなく、異なるユーザーが所属できるグループとなります。
+私たちの銀行では、この2つのグループが定義されており、プロセスを自動化しながら、各グループのタスクを定義し、設定していきます。
 
-## User Configuration in Business Central
+## Business Central でのユーザー設定
 
-Business Central uses and activity-centered design approach, in which functionality is grouped according to the tasks that a user can (or must) perform.
+Business Centralでは、ユーザーが実行できる（または実行しなければならない）タスクに応じて機能をグループ化した、アクティビティ中心のデザインアプローチを採用しています。
 
-1. To access the functionality to administer users and groups, select the _Settings_ menu, the _gear_ icon ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} in the upper right of the screen.
+1. ユーザーやグループを管理する機能にアクセスするには、画面右上の `設定` メニューの `歯車` アイコン ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} を選択してください。
 
 
 2. The _Settings_ menu shows all components that you can configure in your environment. In this step we will focus on the users and groups.

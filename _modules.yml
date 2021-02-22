@@ -9,7 +9,7 @@ modules:
   case-management-overview:
     name: ケース管理の概要
   user-groups-roles:
-    name: Configuring Users and Roles    
+    name: ユーザーとロールの設定
   case-authoring-introduction:
     name: Creating our Case Project
   case-authoring-milestones-and-signals:
