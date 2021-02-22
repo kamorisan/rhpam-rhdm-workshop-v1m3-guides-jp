@@ -11,7 +11,7 @@ modules:
   user-groups-roles:
     name: ユーザーとロールの設定
   case-authoring-introduction:
-    name: Creating our Case Project
+    name: ケースプロジェクトの作成
   case-authoring-milestones-and-signals:
     name: Case Authoring - Milestones and Signals
   case-execution-milestones-and-signals:

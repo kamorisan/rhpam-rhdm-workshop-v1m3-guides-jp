@@ -1,4 +1,4 @@
-# 5. Creating our Case Project
+# 5. ケースプロジェクトの作成
 
 In this section we'll go through:
 
