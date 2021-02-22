@@ -23,7 +23,6 @@ Business Centralでは、ユーザーが実行できる（または実行しな�
 
 1. ユーザーやグループを管理する機能にアクセスするには、画面右上の `設定` メニューの `歯車` アイコンを選択してください。 ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} 
 
-
 2. `設定` メニューには、環境で設定できるすべてのコンポーネントが表示されます。このステップでは、ユーザーとグループに焦点を当てます。 
 
   ![Settings Menu]({% image_path settings-menu.png %}){:width="600px"}
