@@ -11,7 +11,7 @@ RHPAMでは、2種類のユーザーが存在します:
 - **platform users** : これらのユーザーは、Business Central、つまりオーサリング環境と対話するユーザーです。例えば、Business Centralへのログインに使用した `pamAdmin` などです。
 
 - **application users** : これらはプロセス駆動型のアプリケーションを構築し、プラットフォーム上で実行する際に必要なユーザーのことです。_チャージバック申請_ 処理システムの場合、プロセスと対話する2つの異なるロールが必要になります:
-	- **クレジットカード所持者*
+	- **クレジットカード所持者**
 	- Pecunia Corp. で働く、 **承認権限のあるマネージャー** 
 
 実際には、これらは個々のユーザーではなく、異なるユーザーが所属できるグループとなります。
@@ -21,10 +21,10 @@ RHPAMでは、2種類のユーザーが存在します:
 
 Business Centralでは、ユーザーが実行できる（または実行しなければならない）タスクに応じて機能をグループ化した、アクティビティ中心のデザインアプローチを採用しています。
 
-1. ユーザーやグループを管理する機能にアクセスするには、画面右上の `設定` メニューの `歯車` アイコン ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} を選択してください。
+1. ユーザーやグループを管理する機能にアクセスするには、画面右上の `設定` メニューの `歯車` アイコンを選択してください。 ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} 
 
 
-2. The _Settings_ menu shows all components that you can configure in your environment. In this step we will focus on the users and groups.
+2. `設定` メニューには、環境で設定できるすべてのコンポーネントが表示されます。このステップでは、ユーザーとグループに焦点を当てます。
 
   ![Settings Menu]({% image_path settings-menu.png %}){:width="600px"}
 
