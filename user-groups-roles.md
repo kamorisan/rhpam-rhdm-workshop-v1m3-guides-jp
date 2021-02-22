@@ -24,7 +24,7 @@ Business Centralでは、ユーザーが実行できる（または実行しな�
 1. ユーザーやグループを管理する機能にアクセスするには、画面右上の `設定` メニューの `歯車` アイコンを選択してください。 ![Gear Icon]({% image_path gear-icon.png %}){:width="600px"} 
 
 
-2. `設定` メニューには、環境で設定できるすべてのコンポーネントが表示されます。このステップでは、ユーザーとグループに焦点を当てます。
+2. `設定` メニューには、環境で設定できるすべてのコンポーネントが表示されます。このステップでは、ユーザーとグループに焦点を当てます。 
 
   ![Settings Menu]({% image_path settings-menu.png %}){:width="600px"}
 
@@ -32,9 +32,9 @@ Business Centralでは、ユーザーが実行できる（または実行しな�
 
   ![Groups Menu]({% image_path groups-menu.png %}){:width="600px"}
 
-4. Click on `New Group`. The name group is `card-holder`{{copy}}.
+3. Click on `New Group`. The name group is `card-holder`{{copy}}.
 
-5. After you type in the name of the group, in this case `card-holder`{{copy}}, select the `pamAdmin` and click on `Add selected users` to add it to the `card-holder` group.
+4. After you type in the name of the group, in this case `card-holder`{{copy}}, select the `pamAdmin` and click on `Add selected users` to add it to the `card-holder` group.
 
   _In a real world scenario all these groups will be associated with different personas but for the sake of simplicity, your user will be part of all the groups needed, in order for you to be able to test the processes and application._
 
