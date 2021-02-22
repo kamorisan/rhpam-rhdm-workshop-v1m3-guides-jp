@@ -3,7 +3,7 @@
 このセクションでは、以下の内容について説明します:
 
 1. ケースを作成するための業務の前提条件
-2. このケースの役割と変数
+2. このケースの変数とロール
 
 ## 概要
 プロセスを自動化する場合の最初のステップは、プロセスの様々なステップと構造を明示的に定義することです。
@@ -45,31 +45,31 @@ _NOTE: 実際には、***クレジットカード発行者*** はクレジット
 6. _アラート タブ_ : デザイナー の下部には、Business Central がプロジェクトのビルド中に見つかったプロセスやコードの検証に関する警告やエラーに関するアラートを表示するセクションがあります。
 
 
-## ケースの変数と役割
+## ケースの変数とロール
 
 前回のモジュールで _データオブジェクト_ と _ビジネス・デシジョン_ を定義しました。モジュール2のラボを終えた方は、既存のプロジェクトを使用することができます。
 
-NOTE: _If you'd prefer to start off fresh you can delete your `ccd-project` project and re-import it using this URL: [https://github.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-labs-step-1.git](https://github.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-labs-step-1.git)_
+NOTE: _最初からやり直したい場合は、`ccd-project` プロジェクトを削除して、以下の URL を使って再インポートすることができます: [https://github.com/kamorisan/rhpam-rhdm-workshop-v1m3-labs-step-1.git](https://github.com/kamorisan/rhpam-rhdm-workshop-v1m3-labs-step-1.git)_
 
-### Creating your first Case Definition
+### ケース定義の作成
 
-To create your first Case Definition:
+ケース定義を作成する方法:
 
-1. Go to your library view and click on _Add Asset_. From the asset catalog select `Case Definition`, configure the following values:
+1. ライブラリビューに移動し、`アセットの追加` をクリックします。アセットカタログから `ケース定義` を選択し、以下の値を設定します。
 
-  * Name: `ChargeDispute`
-  * Package: `com.myspace.ccd_project`
+  * 名前: `ChargeDispute`
+  * パッケージ: `com.myspace.ccd_project`
 
   ![Business Central Asset New Case ]({% image_path ccd-add-case-definition.png %}){:width="600px"}
 
   ![Business Central New Case Details ]({% image_path ccd-project-add-case-definition-charge-dispute.png %}){:width="600px"}
 
 
-#### Defining Case Variables
+#### ケースファイル変数の定義
 
-We will first define our case variable. These variables will be used to store the case data during the execution the case.
+最初にケース変数を定義します。これらの変数は、ケースの実行中にケースデータを格納するために使用されます。
 
-1. In the properties panel on the right-hand-side of the screen, scroll down to the bottom and expand the `Case Management` section. In the `Case File Variables` table, add the following variables:
+1. 画面右側のプロパティパネルで、下までスクロールして `ケース管理` セクションを展開します。`ケースファイル変数` のテーブルに、以下の変数を追加します。:
 
 	| Name            | Data Type     |
 	| --------------- |:-------------:|
@@ -79,29 +79,30 @@ We will first define our case variable. These variables will be used to store th
 	| approvedChargeback | Boolean |
 	| creditCardholder | creditCardholder |
 
-    At the end your variable definitions should look like this:
+    最後に、ケースファイル変数の定義は次のようになります:
 
     ![Business Central Variable Definitions]({% image_path case-file-variables.png %}){:width="400px"}
 
-2. Save your asset by clicking on the `save` button.
+2. `保存` ボタンをクリックしてアセットを保存します。
 
-#### Defining Roles
+#### ロールの定義
 
-In the Credit Card Dispute case, we can identify different roles. The mapping of the users and/or groups to these case roles is done when the case instance is started, and can be changed afterwards.
+チャージバック申請のケースでは、異なるロールを識別することができます。ユーザー および/または グループのこれらのケース・ロールへのマッピングは、ケース・インスタンスが開始されたときに行われ、後から変更することができます。
 
-1. On the properties panel look for the `Case Roles` table (just above the `Case File Variables` definition). Add the following roles:
+1. プロパティパネルで `ケースロール` テーブルを探してください（`ケースファイル変数` 定義のすぐ上）。以下のロールを追加します。
 
   | Name             | Cardinality |
   | ---------------- |:-----------:|
   | owner            | 1           |
   | approval-manager | 1           |
 
-The cardinality refers to the number of actors that can be mapped to a role.
+`Cardinality` とは、ロールにマッピングできるアクターの数を指します。
 
 ![Business Central Case Roles]({% image_path case-roles.png %}){:width="400px"}
 
-Save your asset by clicking on the `save` button.
+`保存` ボタンをクリックしてアセットを保存します。
 
 ----- 
 
-We have defined the basic information to get started with our case. Now, let's understand how we can drive our case based on the existing data and define some milestones.
+ここまでで、ケースを始めるための基本的な情報を定義しました。
+それでは、既存のデータに基づいてケースを推進する方法を理解し、いくつかのマイルストーンを定義してみましょう。
