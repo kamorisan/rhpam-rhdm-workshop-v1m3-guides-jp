@@ -105,33 +105,33 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
     ![Convert Task to Script Task]({% image_path generic-task-to-script-task.png %}){:width="600px"}
 
-5. Double click the `Script Task` and name it as  `Automatic Approval`. 
-6. Now, follow the same steps, and add another `Script Task` connected to the gateway, and name is `Manual Approval`. 
-7. These serve only as placeholders, so they do not need to have a script implementation. 
+5. `スクリプトタスク` をダブルクリックし、`Automatic Approval` という名前を付けます。
+6. 同様の手順で、ゲートウェイに接続されている別の `スクリプトタスク` を追加し、名前を `Manual Approval` とします。
+7. これらはプレースホルダーとしての仮のタスクなので、スクリプトの実装は必要ありません。
 
   ![Business Central Case X-OR Gateway Tasks]({% image_path business-central-case-xor-gateway-tasks.png %}){:width="800px"}
 
-3. Give one of the _Sequence Flows_ (the arrows connecting the nodes) the name `automatic` and the other the name `manual`. Not only is naming the sequence flows after a gateway a good practice, it also helps when selecting the default flow on the next step.
+3. _シーケンスフロー_ (ノードを結ぶ矢印)には、片方に `automatic` 、もう片方には `manual` という名前をつけます。ゲートウェイからのシーケンスフローに名前をつけることは、次のステップでデフォルトフローを選択する際に必要になります。
 
-4. We can now implement the conditional expressions on the _Exclusive  Gateway_ and the _Sequence Flows_ connecting the gateway to the task nodes. We're first going to define the _Default gate_ of the gateway. *I.e. the path that should be taken when no conditions are met*. Select the _Exclusive Gateway_ node, open the properties panel on the right side of the editor and set the `Default gate` property to the `manual` flow.
+4. これで、_排他的ゲートウェイ_ と、ゲートウェイとタスクノードを接続する _シーケンスフロー_ に条件式を実装することができるようになりました。まず、ゲートウェイの _デフォルトルート_ （条件が満たされていないときのパス）を定義します。_排他的ゲートウェイ_ ノードを選択し、エディタの右側にあるプロパティパネルを開き、`デフォルトルート` プロパティを`manual` フローに設定します。
 
     ![Business Central Case X-OR Gateway Default Gate]({% image_path business-central-case-xor-gateway-default-gate.png %}){:width="800px"}
 
-4. Select the `automatic` _Sequence Flow_. In the properties panel, click on `Implementation/Execution` and select the `Expression` radio button.
+4. _automatic_ シーケンスフロー_を選択します。プロパティパネルで `実装/実行` をクリックして `式` のラジオボタンを選択する。
 
-5. Set the following expression in the _Script_ tab of the expression editor:
+5. 式エディタで以下の式を設定します。
   
-    * Expression: 
+    * 式: 
 
       ~~~
       return (caseFile_fraudData.getAutomated()) != null && (caseFile_fraudData.getAutomated() == true);
       ~~~
 
-    The expression will activate when the `automated` field of the `fraudData` has been set (is not `null`) and the value is `true`.
+    この式は、`fraudData` の `automated` フィールドに `null` ではなく `automated` が設定されていて値が `true` の場合にアクティブになります。
 
     ![Business Central Sequence Flow Expression]({% image_path business-central-sequence-flow-expression.png %}){:width="800px"}
 
-6. Save the case definition.
+6. ケース定義を保存します。
 
 ## Testing the case definition
 
