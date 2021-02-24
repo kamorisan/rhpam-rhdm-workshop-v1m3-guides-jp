@@ -38,7 +38,7 @@
 プロセスエンジンの柔軟性を確認するために、Rest API 経由でケースの新しいインスタンスを起動してみましょう。KIE Serverでは、利用可能なAPIを一通り提供しているので、試してみることができます。
 まずはKIE ServerのSwagger UIを開いてみましょう。
 
-1. Business Centralメニューで、`デプロイ` にアクセスします。
+1. Business Centralメニューで、デプロイメニューの、`実行サーバー` にアクセスします。
 
 2. 次に、リモートサーバーをクリックして、そのURLを新しいタブで開きます。
 
@@ -84,33 +84,33 @@
 
 6. Response Bodyが、"CASE-0000000001” のような、自動生成されたケースIDとなっている、201 Response を取得する必要があります。
 
-**TIP:** It will be easier to go through the labs if you have Business Central and KIE Server Swagger UI opened in two different tabs.
+**TIP:** Business CentralとKIE Server Swagger UIを2つの異なるタブで開いておくと、作業がしやすくなります。
 
-Now, to better visualize the progress of this case instance, let's check our case instance on Business Central. 
+ここで、このケース インスタンスの進行状況をよりよく可視化するために、Business Central でケース インスタンスを確認してみましょう。
 
-## Tracking the case instance with Business Central
+## Business Central でケースインスタンスをトレースする
 
-Business Central offers a monitor view that shows details about each process instance and tasks, and allows also to interact with these items like:
+Business Central は、各プロセスインスタンスとタスクの詳細を表示するモニタービューを提供しており、これらの項目と対話することもできます。
 
-- Starting, aborting, inspecting processes,
-- Listing, visualizing, and managing human tasks (claim, start, etc..);
-- Check the logs of each step of the process.
+- プロセスの開始、中止、監視。
+- ヒューマンタスク（クレーム、開始など）のリスト化、可視化、管理
+- プロセスの各ステップのログの確認
 
-Let's use Business Central, which is managing and monitoring the Process Engine (a.k.a Kie Server), to see more details about the case instance you started.
+プロセスエンジン（別名：Kie Server）を管理・監視しているBusiness Centralを使って、起動したケースインスタンスの詳細を見てみましょう。
 
-1. Go back to Business Central tab, and open the Menu, "Process Instances". 
+1. Business Central タブに戻り、管理メニューの `プロセスインスタンス` を開きます。
 
    ![Process Instances 1]({% image_path bc-process-instances.png %}){:width="600px"}
 
-    You'll should see one instance listed. If you started more instances via Swagger UI, you'll see more. Click on the case instance listed, and 
+    1つのインスタンスがリストアップされているはずです。Swagger UI経由でさらにインスタンスを起動すると、さらに多くのインスタンスが表示されるはずです。表示されているケース・インスタンスをクリックします。
 
     ![Business Central Case Instances Charge Dispute]({% image_path business-central-case-instances-chargedispute.png %}){:width="800px"}
 
-2. Click on the _Diagram_ tab to see the diagram of your case, and the nodes that have been traversed in your case instance. Note that the _Milestone_ is colored grey, what means that it was both triggered (by the _Signal End Event_), as well as completed (by the _Condition_ that evaluated to `true`).
+2. _ダイアグラム_ タブをクリックすると、ケースのダイアグラムが表示されます。マイルストーンの色がグレーになっていることに注意してください。これは、( _終了シグナルイベント_ によって)トリガーされただけでなく、( `true` に評価された _Condition_ によって)完了したことを意味しています。
 
     ![Start Charge Dispute Diagram]({% image_path start-chargedispute-diagram.png %}){:width="800px"}
 
-10. Click on the _Process Variables_ to get an overview of the current state /values of the Case. Note that `fraudData` is indeed set, which was the _Condition_ that completed our _Milestone_.
+10. _プロセス変数_ をクリックすると、ケースの現在の状態/値の概要が表示されます。`fraudData` が設定されていることに注意してください。
 
     ![Start Charge Dispute Case Variables]({% image_path start-chargedispute-case-variables.png %}){:width="800px"}
 
