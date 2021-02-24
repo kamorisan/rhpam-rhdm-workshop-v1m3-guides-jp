@@ -56,7 +56,7 @@ We've identified the following milestones in our Credit Card Dispute case:
     
       ![Business Central Designer Script Task]({% image_path ccd-project-log-case-started-node.png %}){:width="450px"}
 
-5. Click on the **Log Case Started** task, and click on the red circle that appeared right next to it. This will add an _End Event_ of type _End Signal_ to the canva, already connected to your task. 
+5. **Log Case Started** タスクをクリックして、そのすぐ横に表示される赤丸をクリックします。これにより、タスクに接続される形で、キャンバスに _終了シグナル_ タイプの _終了イベント_ が追加されます。
 
      ![Business Central Designer Convert End Task]({% image_path business-central-change-end-event.png %}){:width="450px"}
 
