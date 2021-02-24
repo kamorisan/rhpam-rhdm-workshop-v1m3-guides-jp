@@ -82,7 +82,7 @@
 
      ![Swagger UI Start Case 1]({% image_path swagger-ui-start-case-1.png %}){:width="800px"}
 
-6. You should get a 201 Response, where the Response Body is a Case ID automatically generated, like "CASE-0000000006". 
+6. Response Bodyが、"CASE-0000000001” のような、自動生成されたケースIDとなっている、201 Response を取得する必要があります。
 
 **TIP:** It will be easier to go through the labs if you have Business Central and KIE Server Swagger UI opened in two different tabs.
 
