@@ -87,5 +87,3 @@ ruleflow-group が `automatic-approval` に設定されており、`then` 句が
 これで、すべてのルールを3つの異なる ruleflow-group に設定しました。これは、`ソース` タブに切り替えてルールコードを評価することで確認できます。
 
 では、これらのルールを `ChargeDispute` のケースで使ってみましょう。
-
-
