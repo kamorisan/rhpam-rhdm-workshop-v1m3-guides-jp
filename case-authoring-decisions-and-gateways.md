@@ -39,49 +39,49 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
    ![Business Central Guided Rule Automated Chargeback Ruleflow Group]({% image_path dispute-milestone-new-task-node.png %}){:width="450px"}
 
-3. Now, convert the new task to a `Business Rule` task (accessible under the _Activities_ tooltip on the palette on the left).
+3. さて、新しいタスクを `ビジネスルール` タスクに変換します(タスク左下の 歯車アイコンをクリックして選択します)。
 
    ![Business Central Guided Rule Automated Chargeback Ruleflow Group]({% image_path convert-new-task-node-to-business-rules.png %}){:width="450px"}
 
-4. Double click the rules task to change the name to `Check for automated chargeback`. 
+4. ビジネスルールタスクをダブルクリックして、名前を `Check for automated chargeback` に変更します。
    
-5.  On the `Business Rule` properties on the right panel, update the ruleflow group values  "Implementation/Execution" section:
+5. 右パネルの `ビジネスルール` プロパティで、 `実装/実行` セクションのルールフローグループの値を更新します:
 
-      - Rule Flow Group: `automated-chargeback`
+      - ルールフローグループ: `automated-chargeback`
 
-6.   Save your work. Let's now send the case data to be evaluated against our rules.
+6. 作業を保存します。それでは、ルールに照らし合わせて評価するケースデータを送信してみましょう。
 
-7. The automated chargeback rule evaluates the `CreditCardHolder` and the `FraudData`. So, we need to insert these 2 _case file items_ in the `Working Memory` of the rules engine. Click on the "Assignments" option of your business rule:
+7. The automated chargeback rule evaluates the `CreditCardHolder` and the `FraudData`. So, we need to insert these 2 _case file items_ in the `Working Memory` of the rules engine. Click on the "Assignments" option of your business rule:チャージバック申請の自動承認ルールは `CreditCardHolder` と `FraudData` を評価します。そのため、ルールエンジンの `Working Memory` にこれら2つのケースファイル項目を挿入する必要があります。ビジネスルールタスクの `割当` オプションをクリックします。
 
 	![Edit rules task data input/output]({% image_path edit-rules-task-data.png %}){:width="800px"}
 
-1. Configure it as follow:
+1. 以下のように設定します:
 
-    - Data Input Assignments:
-
-    | Name            | Data Type     | Source       |
-    |:---------------|:-------------|:-------------|
-    | brCreditCardHolder  | CreditCardHolder |caseFile_creditCardHolder |
-    | brFraudData | FraudData  | caseFile_fraudData |
-
-    - Data Output Assignments:
+    - データ入力と割り当て:
 
     | Name            | Data Type     | Source       |
     |:---------------|:-------------|:-------------|
     | brCreditCardHolder  | CreditCardHolder |caseFile_creditCardHolder |
     | brFraudData | FraudData  | caseFile_fraudData |
 
-    - This is how it's gonna look like:
+    - データ出力と割り当て:
+
+    | Name            | Data Type     | Source       |
+    |:---------------|:-------------|:-------------|
+    | brCreditCardHolder  | CreditCardHolder |caseFile_creditCardHolder |
+    | brFraudData | FraudData  | caseFile_fraudData |
+
+    - 以下のようになっているはずです:
 
     ![Business Rules Task Assignment]({% image_path business-rules-task-data-assignment.png %}){:width="600px"}
 
-9. Save your work. This is your case at this moment:
+9. 作業を保存します。現時点で、ケースは以下のようになっています。
 
   ![Business Central Case First Business Rule Node]({% image_path business-central-case-first-business-rule-node.png %}){:width="600px"}
 
 
 
-Now, let's change our automatic process based on our automatic decision making. 
+では、判定結果を元に、チャージバック申請の自動承認処理を追加してみましょう。
 
 
 
