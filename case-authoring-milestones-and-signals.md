@@ -40,16 +40,16 @@ We've identified the following milestones in our Credit Card Dispute case:
 2. オブジェクトライブラリパネルから _スクリプト_ タイプのノードを選択します（パレットの _タスク_ セクションにあります）。それをキャンバス上に配置します。
     ![Business Central Variable Definitions]({% image_path business-central-case-script-task.png %}){:width="800px"}
     
-3. Double click the task you just added, and set the name as: `Log Case Started`. 
+3. 追加したタスクをダブルクリックして、名前を `Log Case Started` に設定します。
 
-4. On the properties panel for the _Script Node_ enter the following:
+4. _スクリプトノード_ のプロパティパネルで、次のように入力します:
 
     | Name            | Value     |
     | --------------- |:-------------:|
-    | Script  | `System.out.println("Case started");` |
-    | AdHoc Autostart  | True |
+    | スクリプト  | `System.out.println("Case started");` |
+    | アドホックの自動開始  | True |
 
-    Your configuration should look like this:
+    設定は以下のようになります:
       ![Business Central Designer Script Task Properties]({% image_path ccd-project-log-case-started-node-properties.png %}){:width="450px"}
     
     **Note:** that we have not defined a _Start_ node in our case. By enabling the `Adhoc autostart` on the script node, the node will be activated and executed automatically when the case is started.
