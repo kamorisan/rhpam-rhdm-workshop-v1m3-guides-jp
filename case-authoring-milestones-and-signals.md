@@ -73,32 +73,37 @@ We've identified the following milestones in our Credit Card Dispute case:
 
     ![Business Central Designer Script Task End Event]({% image_path ccd-project-signal-properties.png %}){:width="400px"}
 
-8. Add a Milestone node to the canva.
+8. キャンバスにマイルストーンノードを追加します。
   
     ![Business Central Milestone Node]({% image_path business-central-milestone-in-palette.png %}){:width="300px"}
 
-9.  Double click it, and set its name to `Dispute Received`. In order to allow the _Signal End Event_ to trigger this _Milestone_, the _Signal_ property of the event should have the exact same name as the _Name_ of the _Milestone_ (which we've done - both are _Dispute Received_). 
+9.  それをダブルクリックして、その名前を `Dispute Received` に設定します。シグナル終了イベントがこのマイルストーンをトリガするためには、イベントの _シグナル_ プロパティはマイルストーンの _名前_ と全く同じ名前でなければなりません（ここでは両方とも _Dispute Received_ です）。
 
-10. Now, select the node, open the properties panel (on the right side of the canva), and unfold the "Data Assignments" options. 
+10. 次に、ノードを選択し、プロパティパネル（キャンバスの右側）を開き、`データ割り当て` オプションを展開します。
 
-11. Click on the `Assignments` field. This will open the _Data Input/Output Assignments_ editor. The data-input `Condition` should already be listed. In the _Source_ field, select `Expression`, and type (or paste) the condition expression value below. 
+11. `割当` フィールドをクリックします。これで _データ入力／出力と割り当て_ エディタが開きます。データ入力の `Condition` が既にリストアップされているはずです。_ソース_ フィールドで `Expression` を選択し、以下の条件式の値を入力(または貼り付け)します。
 
     | Name           | Data Type     | Value     |
     | --------------- |:-------------:| |:-------------:|
     | Condition | Boolean |  CaseData(data.get(\"fraudData\") != null) |
 
-    **Note:** We are setting the `Condition` of the Milestone. This condition will trigger the Milestone node when the `fraudData` case file item is not `null`. Note that triggering the Milestone only *activates* it, in other words, it doesn't complete the milestone. A Milestone is *completed* when its Condition is met.  
+    **Note:** マイルストーンの `Condition` を設定しています。これは、`fraudData` のケースファイル項目が `null` ではないときに、マイルストーンノードをトリガーします。マイルストーンは、その条件が満たされたときに **完了** します。 
 
     ![Business Central Designer Milestone Dispute Assignments]({% image_path milestone-input-condition.png %}){:width="600px"}
 
-    You should have something like this:
+    キャンバスは以下のようになっているはずです:
 
     ![Business Central Designer Milestone Dispute Received]({% image_path ccd-project-milestone-dispute_received.png%}){:width="350px"}
 
-12. Save your process/case definition.
+12. プロセス/ケースの定義を保存してください。
 
-As we saw earlier with the Script Task the ad hoc nodes with no incoming connections can be configured with the `Adhoc autostart` property, which is a property of the node itself. This will activate the node automatically when the case is started. Another way of triggering/activating an _ad hoc_ node is by signalling it. In this case our _Signal End Event_ triggers our _Milestone_ node and activate it. The milestone will be completed basedonconditional expressions and the state of the data. In other words, the milestone we've just created is data-driven.
+先ほどスクリプトタスクで見たように、開始イベントのないアドホックノードは `アドホックの自動開始` プロパティで設定することができます。
+これにより、ケースが開始されたときに自動的にノードがアクティブになります。
+アドホックノードをトリガーしたりアクティブにしたりするもう一つの方法は、ノードにシグナルを送ることです。
+この場合、_終了シグナルイベント_ は _マイルストーン_ ノードをトリガーし、それをアクティブにします。
+マイルストーンは、条件式（Expression）とデータの状態に基づいて完了します。
+言い換えれば、今作成したマイルストーンはデータ駆動型であるということです。
 
-So far we've configured the initial process, a `signal end-event` that triggers the `milestone`, and a `milestone` conditional expression which fired based on the `case data`.
+ここまでで、初期プロセスと、`マイルストーン` のトリガーとなる `終了シグナルイベント` と、`ケースデータ` に基づいて発生する `マイルストーン` の条件式を設定しました。
 
-In the next section we will execute our case, interact with the engine API and track its progress via Business Central.
+次のセクションでは、 API を通じてケースを実行し、Business Central を通じてケースの進捗状況を追跡します。
