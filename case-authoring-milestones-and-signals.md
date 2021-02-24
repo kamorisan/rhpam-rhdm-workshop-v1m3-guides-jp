@@ -64,7 +64,7 @@ We've identified the following milestones in our Credit Card Dispute case:
 
      ![Business Central Designer Script Task End Event]({% image_path ccd-project-end-signal-dispute_received.png %}){:width="450px"}
 
-7. Set its Signal to _Dispute Received_, so once you've completed the logging that the case has started, the signal will trigger a Milestone called `Dispute Received`. Set its Signal Scope to _Process Instance_.
+7. シグナルを _Dispute Received_ に設定して、ケースが開始されたことのロギングを完了すると、シグナルは `Dispute Received` というマイルストーンをトリガします。シグナルのスコープを _Process Instance_ に設定します。
 
     | Name            | Value     |
     | --------------- |:-------------:|
