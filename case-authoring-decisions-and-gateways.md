@@ -133,13 +133,14 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
 6. ケース定義を保存します。
 
-## Testing the case definition
+## ケース定義のテスト
 
 Let's try the business decision and nodes within the case we just updated.
+先ほど更新したケースで、ビジネスデシジョンとノードを試してみましょう。
 
-1. Deploy the project to the execution server by clicking on the _Deploy_ button from the _Asset Library_ perspective.
+1. プロジェクトを実行サーバーにデプロイするには、_アセットライブラリ_ 画面で、_デプロイ_ボタンをクリックします。
 
-2. Start a new case instance like we did in the previous lab, using the KIE Server Swagger UI. Use the same input data. 
+2. 前回のラボで行ったように、KIE Server Swagger UIを使用して新しいケース・インスタンスを開始します。同じ入力データを使用します。
 
     * URL: `POST /server/containers/{containerId}/cases/{caseDefId}/instances`
     * containerId: `ccd-project`
@@ -172,10 +173,10 @@ Let's try the business decision and nodes within the case we just updated.
 
       ![Swagger UI Start Case 1]({% image_path swagger-ui-start-case-1.png %}){:width="800px"}
 
-3. Back on Business Central, Open the diagram of the Case/Process Instance and note that the dispute you've entered requires manual approval.
+3. Business Central に戻り、ケース/プロセスインスタンスのダイアグラムを開き、入力したチャージバック申請は、手動での承認が必要であることを確認してください。
   ![Case With Placeholders Manual Approval]({% image_path case-with-placeholders-manual-approval.png %}){:width="800px"}
 
-3. Start a new case instance, but this time set the Credit Card Holder's status to `Gold`. 
+3. 新しいケースインスタンスを起動しますが、今回はクレジットカード所有者のステータスを `Gold` に設定します。
 
       * containerId: `ccd-project`
 
@@ -208,10 +209,10 @@ Let's try the business decision and nodes within the case we just updated.
         ````
 
 
-6. This should cause the rules to make the dispute eligible for automatic processing. Open the diagram of the Case/Process Instance and observe that the case has indeed taken the path of automatic processing.
+6. これにより、ルールはチャージバック申請を自動処理の対象とするようになるはずです。ケース/プロセスインスタンスのダイアグラムを開いて、ケースが実際に自動処理の道を歩んでいることを確認してください。
 
   ![Case With Placeholders Automatic Approval]({% image_path case-with-placeholders-automatic-approval.png %}){:width="800px"}
 
-You have just learned how to leverage the Decisions and Rules you authored in the previous scenario in your case definition. You have seen how the state of the data, in this case the Card Holder's status, triggers rules. You've seen how the rules manipulate the state of the data, in this case setting the `automatic` field of the `FraudData` to `true`, which can drive decisions and flow directions within our case.
+前のシナリオで作成したデシジョンとルールをケース定義で活用する方法を学びました。データの状態（この場合はカード種別）がどのようにルールをトリガーするかを見てきました。ルールがどのようにデータの状態を操作するか、この例では `FraudData` の `automatic` フィールドを `true` に設定することで、ケース内のデシジョンやフローの方向性を決定することができます。
 
-Apart from changing data, decisions and rules can also infer and create new data, as well as remove data from the case instance. Through decisions and rules, the data-driven approach of Case Management (in contrast to the flow driven approach of traditional BPM) allows for the implementation of very dynamic, data-driven, case logic.
+データを変更するだけでなく、デシジョンやルールは、ケースインスタンスからデータを削除するだけでなく、新しいデータを推論したり、作成したりすることもできます。デシジョンとルールを通じて、ケース管理のデータ駆動型アプローチ（従来のBPMのフロー駆動型アプローチとは対照的）は、非常に動的でデータ駆動型のケースロジックを実装することを可能にします。
