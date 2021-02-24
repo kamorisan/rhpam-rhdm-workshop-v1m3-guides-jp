@@ -52,7 +52,7 @@ We've identified the following milestones in our Credit Card Dispute case:
     設定は以下のようになります:
       ![Business Central Designer Script Task Properties]({% image_path ccd-project-log-case-started-node-properties.png %}){:width="450px"}
     
-    **Note:** that we have not defined a _Start_ node in our case. By enabling the `Adhoc autostart` on the script node, the node will be activated and executed automatically when the case is started.
+    **Note:** このケースでは _開始イベント_ ノードが定義されていません。スクリプトノードの `アドホックの自動開始` を有効にすると、ケースが開始されたときにノードがアクティブになり、自動的に実行されます。
     
       ![Business Central Designer Script Task]({% image_path ccd-project-log-case-started-node.png %}){:width="450px"}
 
