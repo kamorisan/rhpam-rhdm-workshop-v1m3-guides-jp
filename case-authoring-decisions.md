@@ -1,34 +1,35 @@
-# 8. Using Automated Decisions within your flows
+# 8. ケースとの統合に向けたデシジョンの準備
 
-In this section you will learn how to configure different types of decisions so you can integrate them with cases or processes.
+このセクションでは、ケースやプロセスと統合できるように、さまざまなタイプのデシジョンを設定する方法を学びます。
 
-_This section is mandatory for those who are using the projects created on "Module 2 - Authoring Business Rules and Decisions with Red Hat PAM". If you this is not your case, the steps here are already implemented in your project._
+_このセクションは、 "Module 2 - Red Hat PAM でビジネスルールとデシジョンを設計する" で作成したプロジェクトを使用している方には必須のセクションです。そうでない場合は、ここでの手順はすでにプロジェクトに実装されています。_
 
-## Automated decisions in this project
+## 本プロジェクトにおける自動判定
 
-When you start a credit card dispute case you can go through two different scenarios: automated chargeback or standard processing. 
+クレジットカードのチャージバック申請処理のケースを開始すると、自動処理と手動処理の2つの異なるシナリオを経ることができます。
 
-In this project, the rules that support this decision making are automated in two assets: a Guided Rule named "automated-chargeback" and a Guided Decision Table name "risk-evaluation". 
+本プロジェクトでは、"automated-chargeback” という名前のガイド付きルールと、"risk-evaluation” という名前のガイド付きデシジョンテーブルの2つのルールで自動化をしています。
 
-In order to enable our processes and cases to consume these rules, we should use an extra property called `ruleflow-group`. This property is an attribute that can combine a number of rules into a group, after which the execution of those rules can be controlled by activating the `ruleflow-group` from the process/case via a decision node.
+プロセスやケースがこれらのルールを使用できるようにするために、`ruleflow-group` という追加のプロパティを使う必要があります。
+このプロパティは多数のルールを1つのグループにまとめることができる属性であり、その後、デシジョンノードを経由してプロセス/ケースから `ruleflow-group` をアクティブにすることで、これらのルールの実行を制御することができます。
 
-Let's configure our rules so we can use them from within our case. 
+ケース内から使用できるようにルールを設定してみましょう。
 
-## Adding the ruleflow-group configuration to the Guided Rule
+## ガイド付きルールへの ruleflow-group 設定の追加
 
-1. In the Business Central assets list, open the `automated-chargeback`
-2. Click on the `Show options...` label
+1. Business Centralのアセットリストで、`automated-chargeback` を開きます。
+2. `（オプションの表示...）` をクリックします。
   ![Business Central Guided Rule Automated Chargeback]({% image_path automated-chargeback-guided-rule-more-options.png %}){:width="800px"}
 
-3. Next, add a new option by clicking the `plus` icon:
+3. 次に、`+` アイコンをクリックして新しいオプションを追加します:
   ![Business Central Guided Rule Automated Chargeback New Option]({% image_path automated-chargeback-guided-rule-new-options.png %}){:width="800px"}
 
-4. In the pop-up, set the `attribute` as `ruleflow-group`
+4. ポップアップウィンドウで、 `属性`: `ruleflow-group` を選択します。 
 
-5. You should see a new field for the `ruleflow-group`. Fill it with the value `automated-chargeback`
+5. 新しいフィールド `ruleflow-group` が表示されるはずです。このフィールドに `automated-chargeback` という値を入力してください。
    ![Business Central Guided Rule Automated Chargeback New Option]({% image_path automated-chargeback-guided-rule-configured.png %}){:width="800px"}
 
-6. Save the business rule.
+6. ルールを保存してください。
 
 ## Adding the ruleflow-group to the Guided Decision Table
 
