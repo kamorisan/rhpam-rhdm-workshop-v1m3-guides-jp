@@ -31,22 +31,22 @@ _このセクションは、 "Module 2 - Red Hat PAM でビジネスルールと
 
 6. ルールを保存してください。
 
-## Adding the ruleflow-group to the Guided Decision Table
+## ガイド付きデシジョンテーブルへの ruleflow-group の追加
 
-1. In the Business Central assets list, open the `risk-evaluation` Guided Decision Table
-2. Click on the `Columns` tab
+1. Business Centralのアセットリストで、`risk-evaluation` のガイド付き決定テーブルを開きます。
+2. `列` タブをクリックします。
   ![Business Central GDST Column tab]({% image_path gdst-column.png %}){:width="600px"}
-3. Next, click the `Insert Column` button. Select the checkbox `Include advanced options`
-4. New options will show on the menu. Select the `Add an Attribute column` option, and click next
+3. 次に、`Insert Column` ボタンをクリックします。チェックボックス `高度なオプションを含む` を選択してください。
+4. メニューに新しいオプションが表示されます。`属性列を追加` オプションを選択し、`次へ` をクリックする。
   ![Business Central GDST RuleFlow Group Option]({% image_path gdst-adv-options.png %}){:width="600px"}
 
-5. Select `Ruleflow-Group`, and click `Finish`;
+5. `Ruleflow-Group` を選択し、`完了` をクリックします。
   ![Business Central GDST RuleFlow Group Option]({% image_path gdst-new-option.png %}){:width="600px"}
 
-6. Still on the column tab, open the `Attributes Column` menu. Insert the ruleflow-group name: `risk-evaluation`, and check the `Hide Column` check box.
-  ![Business Central GDST Ruleflow Group Config]({% image_path gdst-ruleflow-config.png %}){:width="600px"}
+6. 列タブで `属性列` メニューを開き、ruleflow-group: `risk-evaluation` を入力します。
+  ![Business Central GDST Ruleflow Group Config]({% image_path .png %}){:width="600px"}
 
-7. Go back to the `Model` tab and confirm your rules are set to the right ruleflow group:
+7. `モデル` タブに戻り、ruleflow groupが、`risk-evaluation` に設定されていることを確認します。設定されていない場合は、手動で入力してください。
   ![Business Central GDST Ruleflow Group Config]({% image_path gdst-ruleflow-model-config.png %}){:width="600px"}
 
 
