@@ -51,7 +51,7 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
 6. 作業を保存します。それでは、ルールに照らし合わせて評価するケースデータを送信してみましょう。
 
-7. The automated chargeback rule evaluates the `CreditCardHolder` and the `FraudData`. So, we need to insert these 2 _case file items_ in the `Working Memory` of the rules engine. Click on the "Assignments" option of your business rule:チャージバック申請の自動承認ルールは `CreditCardHolder` と `FraudData` を評価します。そのため、ルールエンジンの `Working Memory` にこれら2つのケースファイル項目を挿入する必要があります。ビジネスルールタスクの `割当` オプションをクリックします。
+7. チャージバック申請の自動承認ルールは `CreditCardHolder` と `FraudData` を評価します。そのため、ルールエンジンの `Working Memory` にこれら2つのケースファイル項目を挿入する必要があります。ビジネスルールタスクの `割当` オプションをクリックします。
 
 	![Edit rules task data input/output]({% image_path edit-rules-task-data.png %}){:width="800px"}
 
@@ -117,7 +117,7 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
     ![Business Central Case X-OR Gateway Default Gate]({% image_path business-central-case-xor-gateway-default-gate.png %}){:width="800px"}
 
-4. _automatic_ シーケンスフロー_を選択します。プロパティパネルで `実装/実行` をクリックして `式` のラジオボタンを選択する。
+4. _automatic_ シーケンスフローを選択します。プロパティパネルで `実装/実行` をクリックして `式` のラジオボタンを選択する。
 
 5. 式エディタで以下の式を設定します。
   
@@ -135,7 +135,6 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
 ## ケース定義のテスト
 
-Let's try the business decision and nodes within the case we just updated.
 先ほど更新したケースで、ビジネスデシジョンとノードを試してみましょう。
 
 1. プロジェクトを実行サーバーにデプロイするには、_アセットライブラリ_ 画面で、_デプロイ_ボタンをクリックします。
