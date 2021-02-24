@@ -67,7 +67,7 @@
 
     * Data Outputs and Assignments
 
-    | Name  | データタイプ | ソース |
+    | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|---|---|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
     | brFraudData | FraudData | caseFile_fraudData |
@@ -89,7 +89,7 @@
 
     * データ出力と割り当て
 
-    | Name  | データタイプ | ソース |
+    | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|
     | brCreditCardHolder | CreditCardHolder | caseFile_creditCardholder |
     | brFraudData | FraudData | caseFile_fraudData |
@@ -104,8 +104,8 @@
 10. ユーザータスクを以下のように設定します:
 
     * Name: `Manual Approval`  
-    * Task Name: `manual_approval`  
-    * Actors: `pamAdmin`  
+    * タスク名: `manual_approval`  
+    * アクター: `pamAdmin`  
 
     また、以下のデータ割り当てを設定します。
 
@@ -130,7 +130,7 @@
 
    ![User Task Manual Approval Data Input Output]({% image_path generate-forms.png %}){:width="350px"}
 
-10. 次に、エンドノードを追加してみましょう。`Chargeback Approved` と `Dispute Rejected` の両方のマイルストーンの後に `Terminating End Event` を追加します。これにより、いずれかのマイルストーンが満たされたときにプロセスとすべてのオープンタスクとマイルストーンが終了するようになります。
+10. 次に、エンドノードを追加してみましょう。`Chargeback Approved` と `Dispute Rejected` の両方のマイルストーンの後に `終了終端イベント` を追加します。これにより、いずれかのマイルストーンが満たされたときにプロセスとすべてのオープンタスクとマイルストーンが終了するようになります。
   ![Case Full Implementation]({% image_path case-full-implementation.png %}){:width="800px"}
 
 10. 作業を保存してください。
