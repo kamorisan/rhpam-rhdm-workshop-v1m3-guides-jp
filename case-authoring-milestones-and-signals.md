@@ -64,12 +64,12 @@ We've identified the following milestones in our Credit Card Dispute case:
 
      ![Business Central Designer Script Task End Event]({% image_path ccd-project-end-signal-dispute_received.png %}){:width="450px"}
 
-7. シグナルを _Dispute Received_ に設定して、ケースが開始されたことのロギングを完了すると、シグナルは `Dispute Received` というマイルストーンをトリガします。シグナルのスコープを _Process Instance_ に設定します。
+7. シグナルを _Dispute Received_ に設定して、ケースが開始されたことのロギングを完了すると、シグナルは `Dispute Received` というマイルストーンをトリガします。シグナルのスコープを _プロセスインスタンス_ に設定します。
 
     | Name            | Value     |
     | --------------- |:-------------:|
-    | Signal  | `Dispute Received` |
-    | Signal Scope  | Process Instance |
+    | シグナル  | `Dispute Received` |
+    | シグナルのスコープ  | プロセスインスタンス |
 
     ![Business Central Designer Script Task End Event]({% image_path ccd-project-signal-properties.png %}){:width="800px"}
 
