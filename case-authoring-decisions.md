@@ -44,15 +44,16 @@ _このセクションは、 "Module 2 - Red Hat PAM でビジネスルールと
   ![Business Central GDST RuleFlow Group Option]({% image_path gdst-new-option.png %}){:width="600px"}
 
 6. 列タブで `属性列` メニューを開き、ruleflow-group: `risk-evaluation` を入力します。
-  ![Business Central GDST Ruleflow Group Config]({% image_path .png %}){:width="600px"}
+  ![Business Central GDST Ruleflow Group Config]({% image_path gdst-ruleflow-config.png %}){:width="600px"}
 
 7. `モデル` タブに戻り、ruleflow groupが、`risk-evaluation` に設定されていることを確認します。設定されていない場合は、手動で入力してください。
   ![Business Central GDST Ruleflow Group Config]({% image_path gdst-ruleflow-model-config.png %}){:width="600px"}
 
 
-## Add a new DRL Rule
+## 新しい DRL ルールの追加
 
-We will need a rule to define if a chargeback can be automatically made, or if it needs to be manually approved. This rule has a simple logic, but it demonstrates how you can make automatic decision made on case file and manipulate it when needed. 
+チャージバック申請の承認を自動承認とするのか、それとも手動で承認する必要があるのかを定義するルールが必要になります。
+このルールは単純なロジックを持っていますが、ケースファイル上で自動で決定を行い、必要なときに操作する方法を示しています。
 
 1. In the Business Central, add a new asset of type `DRL File`
 2. Name it `automatic-approval`
