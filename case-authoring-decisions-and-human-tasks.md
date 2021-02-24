@@ -56,40 +56,40 @@
 
     ![Change Script Task to Business Rule Task]({% image_path case-rule-task-automatic-approval.png %}){:width="800px"}
 
-5. Configure the following Data Assignments for the Automatic Approval Business Rule Task:
+5. `Automatic Approval` ビジネスルールタスクに次のデータ割り当てを設定します。
 
     * Data Inputs and Assignments
 
-    | Name  | Data Type | Source |
+    | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|
     | htCreditCardHolder | CreditCardHolder | caseFile_creditCardHolder |
     | htFraudData | FraudData | caseFile_fraudData |
 
     * Data Outputs and Assignments
 
-    | Name  | Data Type | Target |
+    | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|---|---|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
     | brFraudData | FraudData | caseFile_fraudData |
 
     ![User Task Manual Approval Data IO]({% image_path user-task-manual-approval-data-io.png %}){:width="800px"}
 
-6. For the manual approval part of the flow, we first want to apply the credit risk scoring rules that we've defined in the previous module. This will create the risk scoring information for the user to assess the risk of the dispute. Convert the `Manual Approval` script task into a _Business Rule Task_ and set its _ruleflow-group_ to `risk-evaluation`. Name it `Credit Risk Evaluation`.
+6. フローの手動承認の部分では、まず、前のモジュールで定義したリスク算出ルールを適用したいと思います。これにより、ユーザーがチャージバック申請のリスクを評価するためのリスクスコアリング情報が作成されます。`Manual Approval` スクリプトタスクを _ビジネスルールタスク_ に変換し、_ruleflow-group_ を `risk-evaluation` に設定します。これを `Credit Risk Evaluation` と命名します。
 
     ![Case Rule Risk Evaluation]({% image_path case-rule-risk-evaluation.png %}){:width="800px"}
 
-7. Configure the following Data Assignments for the `Credit Risk Evaluation` Business Rule Task:
+7. `Credit Risk Evaluation` ビジネスルールタスクに以下のデータ割り当てを設定します:
 
-    * Data Inputs and Assignments
+    * データ入力と割り当て
 
-    | Name  | Data Type | Source |
+    | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|
     | brCreditCardHolder | CreditCardHolder | caseFile_creditCardholder |
     | brFraudData | FraudData | caseFile_fraudData |
 
-    * Data Outputs and Assignments
+    * データ出力と割り当て
 
-    | Name  | Data Type | Target |
+    | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|
     | brCreditCardHolder | CreditCardHolder | caseFile_creditCardholder |
     | brFraudData | FraudData | caseFile_fraudData |
@@ -101,22 +101,22 @@
 	![User Task Manual Approval Data Input Output]({% image_path new-user-task.png %}){:width="600px"}
 
 
-10. Configure the task as follows:
+10. ユーザータスクを以下のように設定します:
 
     * Name: `Manual Approval`  
     * Task Name: `manual_approval`  
     * Actors: `pamAdmin`  
 
-    Also, configure the following data assignments:
+    また、以下のデータ割り当てを設定します。
 
-    * Data Inputs and Assignments
+    * データ入力と割り当て
 
-    | Name  | Data Type | Source |
+    | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|---|---|
     | htCreditCardHolder | CreditCardHolder | caseFile_creditCardHolder |
     | htFraudData | FraudData | caseFile_fraudData |
 
-    * Data Outputs and Assignments
+    * データ出力と割り当て
 
     | Name  | Data Type | Target |
     |:--:|:--:|:--:|---|---|
@@ -126,24 +126,25 @@
 
     ![User Task Manual Approval Data Input Output]({% image_path case-usertask-manual-approval.png %}){:width="600px"}
 
-9. Let's automatically generate the user task that will allow us to interact with this human task in Business Central.
+9. Business Central でこのユーザータスクを処理するためのフォームを自動生成してみましょう。
 
    ![User Task Manual Approval Data Input Output]({% image_path generate-forms.png %}){:width="350px"}
 
-9. Let's add the end nodes in our case. Add a _Terminating End Event_ after both the `Chargeback Approved` and `Dispute Rejected` milestone. This makes sure that the process, and all open tasks and milestones are terminated when either one of these milestones is met.
+10. 次に、エンドノードを追加してみましょう。`Chargeback Approved` と `Dispute Rejected` の両方のマイルストーンの後に `Terminating End Event` を追加します。これにより、いずれかのマイルストーンが満たされたときにプロセスとすべてのオープンタスクとマイルストーンが終了するようになります。
   ![Case Full Implementation]({% image_path case-full-implementation.png %}){:width="800px"}
 
-10. Save the process.
+10. 作業を保存してください。
 
-You've now completed the full implementation of the Credit Card Dispute case.
+これでクレジットカードのチャージバック申請処理の案件の実装は完了です。
 
-# Trying out your case
+# ケースをテストする
 
-It's time to try out your latest version of the Credit Card Dispute process! Let's Deploy the project to the Execution Server and see it working.
+クレジットカードチャージバック申請処理の最新版を試してみましょう! 
+プロジェクトを実行サーバにデプロイして、動作を確認してみましょう。
 
-1. To deploy it, go back to the _Assets Library_ view and click on the _Deploy_ button to deploy the project.
+1. デプロイするには、_アセットライブラリ_ ビューに戻り、_デプロイ_ ボタンをクリックしてプロジェクトをデプロイします。
 
-1. Start a case with the data that would require manual approval. Any case with a Credit Card Holder having a _Silver_ status will do.
+1. 手動での承認が必要なデータでケースを開始します。クレジットカード所有者のステータスが _Silver_ であれば、どのようなケースでも手動処理となります。
       
     * API: `POST /server/containers/{containerId}/cases/{caseDefId}/instances` *Starts a new case instance for a specified definition*
     * containerId: `ccd-project`
@@ -174,26 +175,28 @@ It's time to try out your latest version of the Credit Card Dispute process! Let
       }
       ````
 
-3.  Open the process instance diagram of the case and observe that the process is waiting in the `Manual Approval` user task.
+3.  ケースのプロセスインスタンスダイアグラムを開き、`Manual Approval` のユーザタスクでプロセスが待機していることを確認します。
 
     ![Case Wait State Manual Approval]({% image_path case-wait-state-manual-approval.png %}){:width="800px"}
 
-4. In the workbench, go to _Menu -> Track -> Task Inbox_. If everything is correct, the user task of the case you've just started should be in your inbox:
+4. Business Central で、_メニュー -> トラック -> タスク受信箱_ を選択します。全てが正常であれば、開始したばかりの案件のユーザータスクが受信箱に入っているはずです。
 
     ![Case Task Inbox]({% image_path case-task-inbox.png %}){:width="800px"}
 
-5. Click on the task to open it. You will see some of the details of the dispute, including the _Risk Rating_ that is determined by our rules. Enable the _Approve Chargeback_ checkbox to approve the dispute, or keep it disabled to reject it. Click on the _Complete_ button to complete the task:
+5. タスクをクリックして開いてください。ルールで決定された _Risk Rating_ を含む、チャージバック申請の詳細が表示されます。チャージバックを承認するには、_Approve Chargeback_ チェックボックスを有効にし、拒否するには無効にしてください。_完了_ ボタンをクリックしてタスクを完了させます。
 
     ![Case User Task Approve]({% image_path case-user-task-approve.png %}){:width="800px"}
 
-6. Go back to the _Process Instance_ list and notice that your process/case is no longer listed. In the filter section on the left-hand-side of the screen, enable _Completed_
+6. _プロセスインスタンス_ リストに戻ると、先ほどのプロセス/ケースが表示されなくなっているはずです。画面左側のフィルターセクションで、_完了_ を有効にします。
 
     ![Process Instance List Completed Filter]({% image_path process-instance-list-completed-filter.png %}){:width="800px"}
 
-7. You will see your process/case in the list. Select it to open the process instance details screen. Open the _Diagram_ tab. Note that the dispute has been approved, as the _Chargeback Approved_ milestone has been completed.
+7. リストの中に自分のプロセス/ケースが表示されます。それを選択すると、プロセスインスタンスの詳細画面が開きます。ダイアグラム_タブを開きます。この画面では、_Chargeback Approved_ マイルストーンが完了しているので、チャージバック申請が承認されていることに注意してください。
 
     ![Case Completed Dispute Approved]({% image_path case-completed-dispute-approved.png %}){:width="800px"}
 
-    **Note**: The `Dispute Rejected` milestone is greyed out as well in the diagram. This is however due to the _Termination_ node after the `Chargeback Approved` milestone, which has terminated all active nodes in the process, including the `Dispute Rejected` milestone. You can see in the diagram that the _Termination_ node after the `Dispute Rejected` milestone was not reached.
+    **Note**: ダイアグラムでは `Dispute Rejected` マイルストーンもグレーアウトしています。しかし、これは `Chargeback Approved` マイルストーンの後の _Termination_ ノードが `Dispute Rejected` マイルストーンを含むプロセス内のすべてのアクティブなノードを終了させたためです。この図を見ると、`Dispute Rejected` マイルストーンの後の_Termination_ ノードに到達していないことがわかります。
 
-You have successfully finished this part of the workshop. You've learnt how to build a full case definition containing milestones, signals, business rules, gateways, user tasks and terminators. You've seen how Case Management differs from traditional BPM in the sense that cases are dynamic and fully data-driven, relying on rules, data and events to drive the case execution.
+あなたはこのワークショップのこのモジュールを終了しました。
+マイルストーン、シグナル、ビジネスルール、ゲートウェイ、ユーザータスク、ターミネーターを含む、ケース定義を構築する方法を学びました。
+ケース管理が従来のBPMとどのように違うのか、ケースが動的で完全にデータ駆動型であり、ルール、データ、イベントに依存してケースの実行を駆動するという点を確認しました。
