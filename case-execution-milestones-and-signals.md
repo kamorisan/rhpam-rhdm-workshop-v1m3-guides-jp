@@ -10,20 +10,20 @@
 
 ## ケースプロジェクトの特別な設定
 
-Before deploying the project, confirm your project is properly configured as a Case Project.
+プロジェクトをデプロイする前に、プロジェクトがケースプロジェクトとして正しく設定されていることを確認してください。
 
-1. Open the project `Settings`, and access the options `Deployments`, `General Settings`. 
-2. Confirm your project is configured to a `Per case` runtime strategy.
+1. プロジェクトの `設定` を開き、オプション `デプロイメント`、 `一般設定` にアクセスします。
+2. ランタイムストラテジーが `ケース別` に設定されていることを確認してください。
   ![Project  General Settings]({% image_path ccd-project-general-settings.png%}){:width="700px"}
 
-2. Now open the `Marshalling Strategies` menu. Confirm your project has both strategies configured: 
+2. 次に、 `マーシャリングストラテジー` メニューを開きます。プロジェクトに両方のストラテジーが設定されていることを確認してください。
 
     * `org.jbpm.casemgmt.impl.marshalling.CaseMarshallerFactory.builder().withDoc().get();`
     * `new org.jbpm.document.marshalling.DocumentMarshallingStrategy();`
 
   ![Project Marshalling Strategies]({% image_path ccd-project-marshalling-strategies.png%}){:width="700px"}
 
-If necessary, adjust your project configurations to match the ones above, and save the project.
+必要に応じて、プロジェクトの設定を上記のものに合わせて修正し、プロジェクトを保存します。
 
 ## Deploying the project
 
