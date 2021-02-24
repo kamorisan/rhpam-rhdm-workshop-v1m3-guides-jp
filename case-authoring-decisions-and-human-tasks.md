@@ -1,30 +1,33 @@
-# 10. Case Authoring - Decisions and Human Tasks
+# 10. ケースにヒューマンタスクを統合する
 
-Now in this last step, these are the tasks we will achieve:
+さて、この最後のセクションでは、以下のタスクを実施します。
 
-1. How to further enhance your Case Model;
-2. Integrating Human Interaction with the Case Model;
+1. ケースモデルをさらに充実させる方法
+2. ケースモデルにヒューマンタスクを統合する。
 
-## The Credit Card dispute case
+## クレジットカード・チャージバック申請のケース
 
 ![Business Central CC Dispute Diagram Users]({% image_path business-central-cc-dispute-diagram-users.png %}){:width="400px"}
 
-As we saw in the previous steps, we've defined, through business rules, which disputes are eligible for automatic approval and which disputes require manual processing.
+前のセクションで見たように、ビジネスルールを通じて、どのチャージバック申請が自動承認の対象となり、どのチャージバック申請が手動処理を必要とするかを定義しました。
 
-## Automating the Chargeback functionality.
+## チャージバック申請の自動承認
 
-Now that our case is able to determine whether a dispute can be automatically approved or needs a manual approval step, we can implement the actual approval logic, as well as the _Milestones_ that track whether a dispute has been approved or rejected.
+これで、私たちのケースでは、チャージバック申請が自動的に承認されるのか、それとも手動の承認ステップが必要なのかを判断できるようになったので、
+実際の承認ロジックと、チャージバック申請が承認されたか否かをトレースする _マイルストーン_ を実装することができます。
 
-Let's first create the _Milestones_ and their conditions. Our case file contains a _case file item_ called `approvedChargeback`, which is a `Boolean`. We will use this case file item in the conditional expressions of our milestones.
+まず、_マイルストーン_ とその条件を作成してみましょう。
+ケースファイルには `approvedChargeback` という `Boolean` 型 の _ケースファイル項目_ が含まれています。
+このケースファイル項目をマイルストーンの条件式で使用します。
 
-1. Create a new _Milestone_ node with the following characteristics:
+1. 以下の特性を持つ新しい _マイルストーン_ ノードを作成します。
 
-    Name: `Chargeback Approved`  
-    Condition: `CaseData(data.get("approvedChargeback") == true)`  
-
-    Condition Data Type: `Boolean`
-
-    Adhoc autostart: `true`
+    Name: `Chargeback Approved`
+    アドホックの自動開始: `true`
+    データ入力と割り当て:
+      Name: `Condition`
+      データタイプ: `Boolean`
+      ソース: `CaseData(data.get("approvedChargeback") == true)`
 
 2. Create a second _Milestone_ with the following characteristics:
 

@@ -21,6 +21,6 @@ modules:
   case-authoring-decisions-and-gateways:
     name: ケースにデシジョンとゲートウェイを統合する
   case-authoring-decisions-and-human-tasks:
-    name: Integrating Cases with Human Tasks
+    name: ケースにヒューマンタスクを統合する
   finish:
-    name: Conclusion
+    name: おわりに
