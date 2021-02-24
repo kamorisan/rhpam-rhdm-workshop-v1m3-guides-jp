@@ -1,36 +1,41 @@
-# 9. Using Automated Decisions
+# 9. ケースにデシジョンとゲートウェイを統合する
 
-In this section you will learn how to use the Decision making assets inside a Case Management definition.
+このセクションでは、ケース管理の定義の中でデシジョンのアセットを使用する方法を学びます。
 
-## The use case
+## ユースケース
 
-In this step, we should work on automating the scenario where the chargeback can be automatically processed based on the defined business rules. Let's understand a more about the automated chargeback process:
+このセクションでは、定義したビジネスルールに基づいてチャージバック申請を自動承認するシナリオの自動化に取り組んでいきます。チャージバック処理の自動化について、もう少し理解してみましょう:
 
-### Automated Chargeback
+### チャージバック申請の自動承認
 
-A credit card dispute over billing errors has a good chance of being resolved in the favor of customers. This is due to different data collected during the card usage. For instance, the amount of the transaction, or the customer status can also qualify for an automated chargeback.
+請求エラーをめぐるクレジットカードのチャージバック申請は、顧客に有利に解決される可能性が高いです。
+これは、カードの使用中に収集されたさまざまなデータが原因です。
+例えば、トランザクションの金額、または顧客のカード種別によって、チャージバック申請の自動承認の対象となる可能性があります。
 
-The process would look like as follows:
+プロセスは以下のようになります:
 
-1. CC Holder starts the dispute.
+1. カード所持者がチャージバック申請を開始します
 
-2. The information of the case is automatically evaluated by business rules and the decision of an automated chargeback is taken.
+2. ケースの情報をビジネスルールで自動評価し、チャージバック申請自動承認の判定を行います
 
-3. The issuer of the Credit Card (CC) will credit the disputed amount into your account.
+3. カード発行者は、チャージバック対象金額をあなたの口座に入金します
 
-Now let's get back to our automation project.
+では、自動化プロジェクトに戻りましょう。
 
-To decide the type of processing of the Credit Card Dispute we will use the rules for automatic chargeback processing implemented in the `automated-chargeback` guided rule.
+チャージバック申請の処理の種類を決定するために、`automated-chargeback` のガイド付きルールで実装されている、チャージバック申請自動処理のルールを使用します。
 
-NOTE: _If you found any issues and you prefer to import a project with the previous steps completed, delete your `ccd-project` project and re-import it using this URL: [https://github.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-labs-step-3.git](https://github.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-labs-step-3.git)._
+NOTE: _問題が見つかり、前のステップを完了した状態でプロジェクトをインポートしたい場合は、`ccd-project` プロジェクトを削除し、以下の URL を使用してインポートし直してください。: [https://github.com/kamorisan/rhpam-rhdm-workshop-v1m3-labs-step-3.git](https://github.com/kamorisan/rhpam-rhdm-workshop-v1m3-labs-step-3.git)._
 
-### Using Business Rules in a Case
+### ケースの中でビジネスルールを使う
 
-The evaluation to decide if a chargeback should be automatic is the first step after the dispute is started, so we are going to add the step right after the `Dispute received` is triggered. _Remember that Milestones don't perform any actions, they mark a target of the case as achieved. However, functionality can be linked to these Milestone nodes. These nodes will start after the Milestone is completed._
+チャージバック申請の承認を自動で行うかどうかの判断は、チャージバック申請が始まってからの最初のステップなので、`Dispute received` がトリガーされた直後にステップを追加することにします。
+マイルストーンはアクションを実行するものではなく、目標を達成したことを示すものであることに注意してください。
+しかし、これらのマイルストーンノードにはタスク等をリンクすることができます。
+これらのノードはマイルストーンが完了した後に開始されます。
 
-1. Open the _ChargeDispute_ asset of _ccd-project_ (which you worked on earlier)
+1. （以前に作業をした） _ccd-project_ の _chargeDispute_ アセットを開きます。
 
-2. Click on the "Dispute Received" milestone, and add a new task: 
+2. "Dispute Received” マイルストーンをクリックして、新しいタスクを追加します: 
 
    ![Business Central Guided Rule Automated Chargeback Ruleflow Group]({% image_path dispute-milestone-new-task-node.png %}){:width="450px"}
 

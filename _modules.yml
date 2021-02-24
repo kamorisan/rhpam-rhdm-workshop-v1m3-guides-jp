@@ -19,7 +19,7 @@ modules:
   case-authoring-decisions:
     name: ケースとの統合に向けたデシジョンの準備
   case-authoring-decisions-and-gateways:
-    name: Integrating Cases with Decisions and Gateways
+    name: ケースにデシジョンとゲートウェイを統合する
   case-authoring-decisions-and-human-tasks:
     name: Integrating Cases with Human Tasks
   finish:
