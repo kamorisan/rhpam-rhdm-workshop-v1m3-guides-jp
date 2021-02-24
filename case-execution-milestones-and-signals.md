@@ -29,25 +29,26 @@
 
 では、新しいケースを起動してみましょう。ケースをテストをするためには、実行サーバにデプロイする必要があります。
 
-1. In Business Central, open your project's _Asset Library_ view.
-2. Click on the _Deploy_ button in the upper right corner of the screen. This will package and deploy your project to the Execution Server.
-3. The workbench will display 2 green notification bars, stating the build and deployment were successful.
+1. Business Central で、プロジェクトの _アセットライブラリ_ ビューを開きます。
+2. 画面の右上隅にある _デプロイ_ ボタンをクリックします。これにより、プロジェクトがパッケージ化され、実行サーバにデプロイされます。
+3. ワークベンチには、ビルドとデプロイが成功したことを示す2つの緑色の通知バーが表示されます。
 
-## Starting a new case via REST API 
+## REST API 経由で新規にケースを開始する 
 
-To confirm the flexibility of the the engine, let's start a new instance of our case via rest API. KIE Server offers a whole list of the available APIs so we can try it out. It is available at the context "/docs". Let's start by opening the. KIE Server Swagger UI.
+プロセスエンジンの柔軟性を確認するために、Rest API 経由でケースの新しいインスタンスを起動してみましょう。KIE Serverでは、利用可能なAPIを一通り提供しているので、試してみることができます。
+まずはKIE ServerのSwagger UIを開いてみましょう。
 
-1. On the Business Central Menu, access the `Execution Servers`. 
+1. Business Centralメニューで、`デプロイ` にアクセスします。
 
-2. Next, click on the remote server, and open its URL in a new tab:
+2. 次に、リモートサーバーをクリックして、そのURLを新しいタブで開きます。
 
    ![KIE Server URL]({% image_path kie-server-url.png%}){:width="600px"}
 
-3. Let's access the swagger ui. On your URL, change the URL context "http://your-url**/docs**". It should look something like: http://insecure-rhpam7-kieserver-rhpam-user1.apps.cluster-e3df.e3df.example.opentlc.com/docs
-4. Identify the **Case Instances** section. Under this section, you'll click on the API: 
+3. Swagger UIにアクセスしてみましょう。あなたの URLを "http://your-url/docs" のように変更します。次のようになります。 http://insecure-rhpam7-kieserver-rhpam-user1.apps.cluster-e3df.e3df.example.opentlc.com/docs
+4. **Case Instances** セクションを確認します。このセクションの、以下のAPIをクリックします:
    * `POST /server/containers/{containerId}/cases/{caseDefId}/instances` *Starts a new case instance for a specified definition*
 
-5. Click on Try it Out, and insert the following data:
+5. `Try it Out` をクリックし、以下のデータを入力します：
 
    * containerId: `ccd-project`
 
