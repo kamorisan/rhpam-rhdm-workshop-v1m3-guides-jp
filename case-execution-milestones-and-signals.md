@@ -25,9 +25,9 @@
 
 必要に応じて、プロジェクトの設定を上記のものに合わせて修正し、プロジェクトを保存します。
 
-## Deploying the project
+## プロジェクトのデプロイ
 
-Now let's try to start a new case. In order to test it we need to deploy it in the execution engine:
+では、新しいケースを起動してみましょう。ケースをテストをするためには、実行サーバにデプロイする必要があります。
 
 1. In Business Central, open your project's _Asset Library_ view.
 2. Click on the _Deploy_ button in the upper right corner of the screen. This will package and deploy your project to the Execution Server.
