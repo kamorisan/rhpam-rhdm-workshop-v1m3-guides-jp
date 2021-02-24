@@ -55,9 +55,9 @@ _このセクションは、 "Module 2 - Red Hat PAM でビジネスルールと
 チャージバック申請の承認を自動承認とするのか、それとも手動で承認する必要があるのかを定義するルールが必要になります。
 このルールは単純なロジックを持っていますが、ケースファイル上で自動で決定を行い、必要なときに操作する方法を示しています。
 
-1. In the Business Central, add a new asset of type `DRL File`
-2. Name it `automatic-approval`
-3. Use the following code in your rule:
+1. Business Central で、`DRLファイル` タイプの新しいアセットを追加します。
+2. DRLファイルの名前は、 `automatic-approval` とし、`OK` を選択します。
+3. 以下のコードをルールに使用します：
 
 ~~~ 
 package com.myspace.ccd_project;
@@ -79,13 +79,13 @@ then
 end
 ~~~
 
-Note our ruleflow-group is set to `automatic-approval`, and that the `then` clause is modifying our FraudData object existing in our caseFile, setting the attribute `approvedChargeback` to `true`.
+ruleflow-group が `automatic-approval` に設定されており、`then` 句が ケースファイル に存在する FraudData オブジェクトを変更して `approvedChargeback` 属性を `true` に設定していることに注意してください。
 
 
 ----- 
 
-With this, we have configured all the rules and into three different ruleflow groups. You can confirm that by switching to the `Source` tab and evaluating the rules code.
+これで、すべてのルールを3つの異なる ruleflow-group に設定しました。これは、`ソース` タブに切り替えてルールコードを評価することで確認できます。
 
-Now, let's go ahead and use these rules in our `ChargeDispute` case.
+では、これらのルールを `ChargeDispute` のケースで使ってみましょう。
 
 
