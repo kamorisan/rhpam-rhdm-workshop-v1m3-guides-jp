@@ -31,13 +31,13 @@ We've identified the following milestones in our Credit Card Dispute case:
 
 次に、ケース定義の中でマイルストーンをモデル化する方法について説明します。
 
-## Defining Milestones
+## マイルストーンの定義
 
-To model the milestones of the case:
+ケースのマイルストーンをモデル化するには:
 
-1. Open the `ChargeDispute` process.
+1. `ChargeDispute` プロセスを開きます。
 
-2. Select from the Object Library Panel a node of type _Script Node_ (located in the _Tasks_ section of the palette). Place it on the canvas.
+2. オブジェクトライブラリパネルから _スクリプト_ タイプのノードを選択します（パレットの _タスク_ セクションにあります）。それをキャンバス上に配置します。
     ![Business Central Variable Definitions]({% image_path business-central-case-script-task.png %}){:width="800px"}
     
 3. Double click the task you just added, and set the name as: `Log Case Started`. 
@@ -73,15 +73,15 @@ To model the milestones of the case:
 
     ![Business Central Designer Script Task End Event]({% image_path ccd-project-signal-properties.png %}){:width="800px"}
 
-5. Add a Milestone node to the canva.
+8. Add a Milestone node to the canva.
   
     ![Business Central Milestone Node]({% image_path business-central-milestone-in-palette.png %}){:width="300px"}
 
-6.  Double click it, and set its name to `Dispute Received`. In order to allow the _Signal End Event_ to trigger this _Milestone_, the _Signal_ property of the event should have the exact same name as the _Name_ of the _Milestone_ (which we've done - both are _Dispute Received_). 
+9.  Double click it, and set its name to `Dispute Received`. In order to allow the _Signal End Event_ to trigger this _Milestone_, the _Signal_ property of the event should have the exact same name as the _Name_ of the _Milestone_ (which we've done - both are _Dispute Received_). 
 
-9. Now, select the node, open the properties panel (on the right side of the canva), and unfold the "Data Assignments" options. 
+10. Now, select the node, open the properties panel (on the right side of the canva), and unfold the "Data Assignments" options. 
 
-10. Click on the `Assignments` field. This will open the _Data Input/Output Assignments_ editor. The data-input `Condition` should already be listed. In the _Source_ field, select `Expression`, and type (or paste) the condition expression value below. 
+11. Click on the `Assignments` field. This will open the _Data Input/Output Assignments_ editor. The data-input `Condition` should already be listed. In the _Source_ field, select `Expression`, and type (or paste) the condition expression value below. 
 
     | Name           | Data Type     | Value     |
     | --------------- |:-------------:| |:-------------:|
@@ -95,7 +95,7 @@ To model the milestones of the case:
 
     ![Business Central Designer Milestone Dispute Received]({% image_path ccd-project-milestone-dispute_received.png%}){:width="350px"}
 
-6. Save your process/case definition.
+12. Save your process/case definition.
 
 As we saw earlier with the Script Task the ad hoc nodes with no incoming connections can be configured with the `Adhoc autostart` property, which is a property of the node itself. This will activate the node automatically when the case is started. Another way of triggering/activating an _ad hoc_ node is by signalling it. In this case our _Signal End Event_ triggers our _Milestone_ node and activate it. The milestone will be completed basedonconditional expressions and the state of the data. In other words, the milestone we've just created is data-driven.
 
