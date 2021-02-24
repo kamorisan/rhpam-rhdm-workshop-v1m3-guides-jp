@@ -42,15 +42,15 @@
 
      `アドホックの自動開始` プロパティを設定すると、ケースが開始されたときにマイルストーンノードがアクティブになります。マイルストーンは条件を満たすと完了します。
 
-3. We now need to define and configure the logic that sets the `approvedChargeback` case file item to `true` or `false`. In the case of _automatic_ processing, we want to implement this logic using rules. In the case of _manual_ processing, we want to allow a user to set this value via a so called _User Task_ or _Human Task_. We've already provided the rules for the automatic approval, which are defined in a DRL (Drools Rule Language) file called `automatic-approval.drl`.
+3. 次に、ケースファイルの `approvedChargeback` の項目を `true` または `false` に設定するロジックを定義・設定する必要があります。自動承認の場合は、ルールを使ってこのロジックを実装したいと思います。手動処理の場合は、_ユーザータスク_ または _ヒューマンタスク_ と呼ばれる方法で、ユーザがこの値を設定できるようにしたいと考えています。自動承認のためのルールはすでに提供されており、`automatic-approval.drl` というDRL(Drools Rule Language)ファイルで定義されています。
 
     ![Case Automatic Approval Rule]({% image_path automatic-approval-rule-ss.png %}){:width="800px"}
 
-    As showed in the screenshot above, the rule sets the `approvedChargeback` case file item to `true` when `automated` field of `FraudData` is set to `true`. Obviously, this is a very basic rule which in essence approves the chargeback for every dispute that is eligible for automated approval. Nevertheless, it demonstrates how rules can be used to manipulate data in the case file, and how more advanced rules can make use of this functionality.
+    上のスクリーンショットに示すように、このルールは `FraudData` の `automated` フィールドが `true` に設定されている場合、`approvedChargeback` ケースファイルの項目を `true` に設定します。これは非常に基本的なルールであり、自動承認の対象となるすべてのチャージバック申請に対してこれを承認するものです。このことは、ルールを使用してケースファイル内のデータを操作する方法と、より高度なルールでこの機能を利用する方法を示しています。
 
-    Also note that the name of the _ruleflow-group_ is set to `automatic-approval`. We need this _ruleflow-group_ and use it in our _Business Rule Task_.
+    また、_ruleflow-group_ の名前が `automatic-approval` に設定されていることにも注意してください。この _ruleflow-group_ が、_ビジネスルールタスク_ を使用するために必要になります。
 
-4. To use the rule, change the `Automatic Approval` script task into a _Business Rule Task_ and set its _ruleflow-group_ property to `automatic-approval`.
+4. ルールを使用するには、`Automatic Approval `スクリプトタスクを _ビジネスルールタスク_ に変更し、_ruleflow-group_ プロパティを`automatic-approval`に設定します。
 
     ![Change Script Task to Business Rule Task]({% image_path change-script-task-to-business-rule-task.png %}){:width="800px"}
 
