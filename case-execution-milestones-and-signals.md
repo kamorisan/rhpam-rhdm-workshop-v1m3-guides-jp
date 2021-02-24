@@ -114,32 +114,32 @@ Business Central は、各プロセスインスタンスとタスクの詳細を
 
     ![Start Charge Dispute Case Variables]({% image_path start-chargedispute-case-variables.png %}){:width="800px"}
 
-## Validating your case using Case Management Showcase App
+## ケース管理のショーケースアプリを使って、ケースを検証する
 
-The platform provides a _Case Management Showcase_ application, which is an **example** of how a custom Case Management dashboard could be composed. Let's test your process using it.
+このプラットフォームは _Case Management Showcase_ アプリケーションを提供しており、カスタムのケース管理ダッシュボードをどのように構成することができるかの **例** です。これを使ってプロセスをテストしてみましょう。
 
-1. Open this application by clicking on the _Application Launcher_ button on the top right of the screen. Next, click on _Case Management Showcase_.
+1. 画面右上の _Application Launcher_ ボタンをクリックし、_ケース管理ショーケース_ をクリックします。
 
     ![Business Central Case Management Showcase Button]({% image_path business-central-cm-showcase-button.png %}){:width="800px"}
 
-2. Login with the same credentials that you used for the Business Central Workbench (u:`pamAdmin`, p:`redhatpam1!`).
+2. Business Central ワークベンチ で使用したのと同じ資格情報 (user:`pamAdmin`, password:`redhatpam1!`) でログインします。
 
-3. Locate the blue button `Start Case` and click on it. We will now start a new instance of your Charge Dispute process.
+3. 青いボタン `ケース開始` をクリックしてください。これで、あなたのチャージバック申請処理の新しいインスタンスが開始されます。
 
-4. A new pop-up should show up. Fill in the `Case Owner` field with value `pamAdmin`, and also the `Users` for the `Role Name` `approval-manager`. Your form should look like this:
+4. 新しいポップアップウィンドウが表示されるはずです。`ケース所有者` フィールドに値 `pamAdmin` を入力し、`ロール名` `approval-manager` には `Users` を入力してください。フォームは次のようになります:
 
   ![Case Management Showcase ChargeDispute List]({% image_path showcase-app-new-case-popup.png %}){:width="800px"}
 
-5. Click on `Start`. The showcase application will list the opened case. You will see the case you've just started in the list:
+5. `スタート`をクリックします。ショーケースアプリケーションが開いているケースを一覧表示します。リストの中には、今始めたばかりのケースが表示されます:
 
     ![Case Management Showcase ChargeDispute List]({% image_path cms-chargedispute-case-list.png %}){:width="800px"}
 
-4. Click on the case to open a detailed view of the open case. This view will, among other things, list the completed milestones, the available actions, the actions that are in progress, the completed actions and the case roles. Take some time to explore the details of your case.
+6. ケースをクリックすると、開いているケースの詳細ビューが表示されます。このビューには、完了したマイルストーン、利用可能なアクション、進行中のアクション、完了したアクション、ケースの役割などが表示されます。ケースの詳細について確認してみてください。
 
     ![Case Management Showcase ChargeDispute Details]({% image_path cms-chargedispute-case-details.png %}){:width="800px"}
 
 # Conclusion
 
-So far we've configured the initial process, a `signal end-event` that triggers the `milestone`, and a `milestone` conditional expression which fired based on the `case data`.
+ここまでで、初期プロセスと、`マイルストーン` のトリガーとなる `終了シグナルイベント` と、`ケースデータ` に基づいて発生する `マイルストーン` の条件式を設定した。
 
-In the next section we will add our rules, decisions and user-tasks to our project.
+次のセクションでは、ルール、デシジョン、ユーザータスクをプロジェクトに追加します。
