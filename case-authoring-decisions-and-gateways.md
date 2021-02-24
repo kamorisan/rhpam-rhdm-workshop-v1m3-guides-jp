@@ -85,7 +85,7 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
 
 
-## Using gateways
+## ゲートウェイを使う
 
   As part of the rule's action (the right-hand-side, or consequence, of the rule), the case data might change. For example, when the dispute is eligible for automated chargeback, the rule will change the `FraudData` fact/case file item by setting its `automated` property to `true`. Hence, we want to use a conditional gateway to decide whether we can do automatic approval or not.
 
