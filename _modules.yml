@@ -13,9 +13,9 @@ modules:
   case-authoring-introduction:
     name: ケースプロジェクトの作成
   case-authoring-milestones-and-signals:
-    name: Case Authoring - Milestones and Signals
+    name: ケースの作成 - マイルストーンとシグナル
   case-execution-milestones-and-signals:
-    name: Executing the Case Management application
+    name: ケース管理アプリケーションの実行
   case-authoring-decisions:
     name: Preparing Decisions for Integration with Cases
   case-authoring-decisions-and-gateways:

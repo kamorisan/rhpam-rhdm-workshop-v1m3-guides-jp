@@ -1,14 +1,14 @@
-# 7. Executing the Case Management application
+# 7. ケース管理アプリケーションの実行
 
-In this section we'll test the case project we just authored. We will:
+このセクションでは、先ほど作成したケースプロジェクトをテストします:
 
-1. Deploy the project
+1. プロジェクトをデプロイします
 
-2. Learn about the case management rest APIs
+2. ケース管理の Rest API について
 
-3. Track our case progress using Business central
+3. Business central を使用してケースの進捗状況をトレースします
 
-## Case Project special configurations
+## ケースプロジェクトの特別な設定
 
 Before deploying the project, confirm your project is properly configured as a Case Project.
 
