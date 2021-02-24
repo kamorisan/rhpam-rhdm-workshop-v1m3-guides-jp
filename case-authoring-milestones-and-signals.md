@@ -1,28 +1,35 @@
-# 6. Case Authoring - Milestones and Signals
+# 6. ケースの作成 - マイルストーンとシグナル
 
-In this section we'll go through the following topics:
+このセクションでは、以下の内容について説明します:
 
-1. What are Milestones and when to use them.
+1. マイルストーンとは何か、どのような時に使うのか
 
-2. How to model a case using Milestones.
+2. マイルストーンを使ってケースをモデル化する方法
 
-3. How to activate Milestones using Signals.
+3. シグナルを使ってマイルストーンをアクティブにする方法。
 
-4. How to complete Milestones.
+4. マイルストーンを完了させる方法。
 
-## Milestones of the Case
+## ケースのマイルストーン
 
-In order to track the progress of a case instance, we need to define the relevant milestones for the customer. A milestone has to be defined to inform the Credit Card Holder, case owner and case workers that an important goal has been achieved. Some of these goals can be attained in parallel. After you have completed a milestone, there is still a possibility you can go back in the process and trigger the milestone again if needed. Also some of the milestones are discretionary, so they might never be triggered. A Milestone in a case definition is represented by the  Milestone node .
+ケースインスタンスの進捗をトレースするためには、顧客に関連するマイルストーンを定義する必要があります。
+マイルストーンは、重要な目標が達成されたことをクレジットカード所有者、ケースオーナー、ケースワーカーに知らせるために定義する必要があります。
+これらの目標の中には、並行して達成できるものもあります。
+マイルストーンを完了した後、必要に応じてプロセスに戻って再度マイルストーンをトリガーすることも可能です。
+また、マイルストーンについては任意なので、条件が成立しない場合は実行されません。
+ケース定義のマイルストーンは、マイルストーンノードで表されます。
 
 We've identified the following milestones in our Credit Card Dispute case:
+クレジットカードのチャージバック申請案件では、以下のようなマイルストーンを定義します。
 
-1. Dispute started
-2. Chargeback approved
-3. Dispute rejected
+1. チャージバック申請の開始
+2. チャージバック承認
+3. チャージバック拒否
 
-These are the achievable targets to help us track the progress of the dispute. They don't have any particular order, so you can come back to any of them if something in the Case File data changes.
+これらは、チャージバック申請の進捗をトレースするための達成可能な目標です。
+これらには特に順番はありませんので、ケースファイルのデータに何か変更があった場合は、いずれかの目標に戻ってくることができます。
 
-Next, let's learn how to model Milestones inside your Case Definition.
+次に、ケース定義の中でマイルストーンをモデル化する方法について説明します。
 
 ## Defining Milestones
 
