@@ -56,11 +56,11 @@ We've identified the following milestones in our Credit Card Dispute case:
     
       ![Business Central Designer Script Task]({% image_path ccd-project-log-case-started-node.png %}){:width="450px"}
 
-5. **Log Case Started** タスクをクリックして、そのすぐ横に表示される赤丸をクリックします。これにより、タスクに接続される形で、キャンバスに _終了シグナル_ タイプの _終了イベント_ が追加されます。
+5. **Log Case Started** タスクをクリックして、そのすぐ横に表示される赤丸をクリックします。これにより、タスクに接続される形で、キャンバスに _終了_ タイプの _終了イベント_ が追加されます。
 
      ![Business Central Designer Convert End Task]({% image_path business-central-change-end-event.png %}){:width="450px"}
 
-6. Convert this End Task to and End Event Task. As represented on the image above, click on the End Task, and click on the engine icon on the left corner. Select the "Convert into End Signal" option. Your end node should look like this:
+6. この終了タスクを終了シグナルタスクに変換します。上の画像のように、終了タスクをクリックして、左下隅の歯車のアイコンをクリックします。`変更・終了シグナル` オプションを選択します。終了イベントノードは以下のようになります:
 
      ![Business Central Designer Script Task End Event]({% image_path ccd-project-end-signal-dispute_received.png %}){:width="450px"}
 
