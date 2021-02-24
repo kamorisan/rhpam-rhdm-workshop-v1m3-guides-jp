@@ -87,21 +87,21 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
 ## ゲートウェイを使う
 
-  As part of the rule's action (the right-hand-side, or consequence, of the rule), the case data might change. For example, when the dispute is eligible for automated chargeback, the rule will change the `FraudData` fact/case file item by setting its `automated` property to `true`. Hence, we want to use a conditional gateway to decide whether we can do automatic approval or not.
+  ルールのアクション(ルールの右側、つまり結果)の一部として、ケースデータが変更されることがあります。例えば、チャージバック申請がが自動承認の対象となる場合、ルールは `FraudData` の `automated` プロパティを `true` に設定することで、`FraudData` のファクト/ケースファイル項目を変更します。したがって、自動承認を行うかどうかは条件付きゲートウェイを使って判断をすることにします。
 
-1. Select the `Check for automated chargeback` Business Rule node, and click on the gateway icon.
+1. `Check for automated chargeback` のビジネスルールノードを選択し、ゲートウェイのアイコンをクリックする。
 
     ![Business Central Case X-OR Gateway]({% image_path business-central-case-xor-gateway.png %}){:width="600px"}
 
-2. Now, convert the `parallel gateway` to an `exclusive gateway`:
+2. ここで、`並行ゲートウェイ` を `排他的ゲートウェイ` に変換する。
 
     ![Convert Gateway]({% image_path convert-xor-gateway.png %}){:width="600px"}
 
-3. Add a new task to the gateway, by selecting the `Create Task` option: 
+3. 新しいタスクをゲートウェイに追加するには、`作成 Task` オプションを選択します。
 
     ![New Task on Gateway]({% image_path new-task-xor-gateway.png %}){:width="600px"}
 
-4. Convert this task to a `Script Task`: 
+4. このタスクを `スクリプトタスク` に変換する。
 
     ![Convert Task to Script Task]({% image_path generic-task-to-script-task.png %}){:width="600px"}
 
