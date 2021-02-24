@@ -71,7 +71,7 @@ We've identified the following milestones in our Credit Card Dispute case:
     | シグナル  | `Dispute Received` |
     | シグナルのスコープ  | プロセスインスタンス |
 
-    ![Business Central Designer Script Task End Event]({% image_path ccd-project-signal-properties.png %}){:width="800px"}
+    ![Business Central Designer Script Task End Event]({% image_path ccd-project-signal-properties.png %}){:width="400px"}
 
 8. Add a Milestone node to the canva.
   
