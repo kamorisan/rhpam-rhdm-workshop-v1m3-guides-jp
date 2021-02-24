@@ -138,7 +138,7 @@ Business Central は、各プロセスインスタンスとタスクの詳細を
 
     ![Case Management Showcase ChargeDispute Details]({% image_path cms-chargedispute-case-details.png %}){:width="800px"}
 
-# Conclusion
+# おわりに
 
 ここまでで、初期プロセスと、`マイルストーン` のトリガーとなる `終了シグナルイベント` と、`ケースデータ` に基づいて発生する `マイルストーン` の条件式を設定した。
 
