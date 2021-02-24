@@ -31,16 +31,16 @@
 
 2. Create a second _Milestone_ with the following characteristics:
 
-    Name: `Dispute Rejected`  
-    Condition: `CaseData(data.get("approvedChargeback") == false)`  
-
-    Condition Data Type: `Boolean`
-
-    Adhoc autostart: `true`
+    Name: `Dispute Rejected`
+    アドホックの自動開始: `true`
+    データ入力と割り当て:
+      Name: `Condition`
+      データタイプ: `Boolean`
+      ソース: `CaseData(data.get("approvedChargeback") == false)`
 
       ![Business Central Milestones Approved Rejected]({% image_path case-milestones-approved-rejected.png  %}){:width="800px"}
 
-    Setting the `Adhoc autostart` property activates these milestone nodes when the case is started. The milestones are completed when their condition is met.
+     `アドホックの自動開始` プロパティを設定すると、ケースが開始されたときにマイルストーンノードがアクティブになります。マイルストーンは条件を満たすと完了します。
 
 3. We now need to define and configure the logic that sets the `approvedChargeback` case file item to `true` or `false`. In the case of _automatic_ processing, we want to implement this logic using rules. In the case of _manual_ processing, we want to allow a user to set this value via a so called _User Task_ or _Human Task_. We've already provided the rules for the automatic approval, which are defined in a DRL (Drools Rule Language) file called `automatic-approval.drl`.
 
