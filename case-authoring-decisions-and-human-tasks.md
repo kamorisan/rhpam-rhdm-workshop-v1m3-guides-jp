@@ -22,21 +22,21 @@
 
 1. 以下の特性を持つ新しい _マイルストーン_ ノードを作成します。
 
-    Name: `Chargeback Approved`
-    アドホックの自動開始: `true`
-    データ入力と割り当て:
-      Name: `Condition`
-      データタイプ: `Boolean`
-      ソース: `CaseData(data.get("approvedChargeback") == true)`
+    - Name: `Chargeback Approved`
+    - アドホックの自動開始: `true`
+    - データ入力と割り当て:
+      - Name: `Condition`
+      - データタイプ: `Boolean`
+      - ソース: `CaseData(data.get("approvedChargeback") == true)`
 
-2. Create a second _Milestone_ with the following characteristics:
+2. 同様にして、以下の特徴を持つ第2の _マイルストーン_ ノードを作成します。
 
-    Name: `Dispute Rejected`
-    アドホックの自動開始: `true`
-    データ入力と割り当て:
-      Name: `Condition`
-      データタイプ: `Boolean`
-      ソース: `CaseData(data.get("approvedChargeback") == false)`
+    - Name: `Dispute Rejected`
+    - アドホックの自動開始: `true`
+    - データ入力と割り当て:
+      - Name: `Condition`
+      - データタイプ: `Boolean`
+      - ソース: `CaseData(data.get("approvedChargeback") == false)`
 
       ![Business Central Milestones Approved Rejected]({% image_path case-milestones-approved-rejected.png  %}){:width="800px"}
 
