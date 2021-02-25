@@ -70,7 +70,7 @@
     | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|---|---|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
-    | brFraudData | FraudData | caseFile_fraudData |
+    | htFraudData | FraudData | caseFile_fraudData |
 
     ![User Task Manual Approval Data IO]({% image_path user-task-manual-approval-data-io.png %}){:width="800px"}
 
@@ -151,7 +151,7 @@
     * case definition: `ccd-project.ChargeDispute` 
     * Body: 
 
-      ````
+      ~~~
       {
         "case-data" : {
           "creditCardholder": {
@@ -173,7 +173,7 @@
         "case-group-assignments" : { },
         "case-data-restrictions" : { }
       }
-      ````
+      ~~~
 
 3.  ケースのプロセスインスタンスダイアグラムを開き、`Manual Approval` のユーザタスクでプロセスが待機していることを確認します。
 

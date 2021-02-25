@@ -59,14 +59,14 @@ NOTE: _問題が見つかり、前のステップを完了した状態でプロ�
 
     - データ入力と割り当て:
 
-    | Name            | Data Type     | Source       |
+    | Name            | データタイプ     | ソース     |
     |:---------------|:-------------|:-------------|
     | brCreditCardHolder  | CreditCardHolder |caseFile_creditCardHolder |
     | brFraudData | FraudData  | caseFile_fraudData |
 
     - データ出力と割り当て:
 
-    | Name            | Data Type     | Source       |
+    | Name            | データタイプ    | ターゲット      |
     |:---------------|:-------------|:-------------|
     | brCreditCardHolder  | CreditCardHolder |caseFile_creditCardHolder |
     | brFraudData | FraudData  | caseFile_fraudData |
