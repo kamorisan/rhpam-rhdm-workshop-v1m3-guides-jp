@@ -56,7 +56,7 @@
 
    * Body: 
 
-     〜〜〜
+     ~~~
      {
        "case-data" : {
          "creditCardholder": {
@@ -78,7 +78,7 @@
        "case-group-assignments" : { },
        "case-data-restrictions" : { }
      }
-     〜〜〜
+     ~~~
 
      ![Swagger UI Start Case 1]({% image_path swagger-ui-start-case-1.png %}){:width="800px"}
 
