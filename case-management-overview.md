@@ -16,7 +16,6 @@ Red Hat Process Automation ManagerはCMMN仕様を実装していますが、Red
 
 ## ケース管理に関する用語
 
-Case Management introduces a number of additional concepts and terminologies on top of business process management.
 ケース管理では、ビジネスプロセス管理の上に、いくつかの概念や用語を追加で紹介しています。
 
 このモジュールで使用する、いくつかの重要なコンポーネントを紹介します:
