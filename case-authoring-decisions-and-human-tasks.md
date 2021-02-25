@@ -151,7 +151,7 @@
     * case definition: `ccd-project.ChargeDispute` 
     * Body: 
 
-      ````
+      ~~~
       {
         "case-data" : {
           "creditCardholder": {
@@ -173,7 +173,7 @@
         "case-group-assignments" : { },
         "case-data-restrictions" : { }
       }
-      ````
+      ~~~
 
 3.  ケースのプロセスインスタンスダイアグラムを開き、`Manual Approval` のユーザタスクでプロセスが待機していることを確認します。
 
@@ -195,7 +195,7 @@
 
     ![Case Completed Dispute Approved]({% image_path case-completed-dispute-approved.png %}){:width="800px"}
 
-    **Note**: ダイアグラムでは `Dispute Rejected` マイルストーンもグレーアウトしています。しかし、これは `Chargeback Approved` マイルストーンの後の _Termination_ ノードが `Dispute Rejected` マイルストーンを含むプロセス内のすべてのアクティブなノードを終了させたためです。この図を見ると、`Dispute Rejected` マイルストーンの後の_Termination_ ノードに到達していないことがわかります。
+    **Note**: ダイアグラムでは `Dispute Rejected` マイルストーンもグレーアウトしています。しかし、これは `Chargeback Approved` マイルストーンの後の _Termination_ ノードが `Dispute Rejected` マイルストーンを含むプロセス内のすべてのアクティブなノードを終了させたためです。この図を見ると、`Dispute Rejected` マイルストーンの後の _終了終端_ ノードに到達していないことがわかります。
 
 あなたはこのワークショップのこのモジュールを終了しました。
 マイルストーン、シグナル、ビジネスルール、ゲートウェイ、ユーザータスク、ターミネーターを含む、ケース定義を構築する方法を学びました。
