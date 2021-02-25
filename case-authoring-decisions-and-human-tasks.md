@@ -68,7 +68,7 @@
     * データ出力と割り当て
 
     | Name  | データタイプ | ターゲット |
-    |:--:|:--:|:--:|---|---|
+    |:--:|:--:|:--:|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
 
     ![User Task Manual Approval Data IO]({% image_path user-task-manual-approval-data-io.png %}){:width="800px"}
