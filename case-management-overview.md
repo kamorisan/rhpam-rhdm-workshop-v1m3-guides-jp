@@ -26,7 +26,7 @@ Case Management introduces a number of additional concepts and terminologies on 
 - _マイルストーン_ : マイルストーンは、ケースの進捗状況を評価できるように定義された、達成可能な目標を表します。マイルストーンに直接関連する仕事はありませんが、一連のタスクの完了や主要な成果物（ケースファイルの情報）の利用可能性は、一般的にマイルストーンの達成につながります。
 - _ヒューマンタスク_ : ケースワーカーが実行するタスクです。
 - _プロセスタスク_ : ビジネスプロセスを呼び出すためのケースで使用できます。
-- _デシジョンタスク_ : Can be used in the Case to invoke a Decision. A Decision in CMMN is an abstraction of Decisions as they are specified in various Decision Modeling specifications.デシジョンを呼び出すためにケースで使用することができます。
+- _デシジョンタスク_ : デシジョンを呼び出すためにケースで使用することができます。
 
 ケースは通常のプロセスよりもダイナミックなライフサイクルを持っています。
 通常のプロセスでは、最終的な状態は `完結` です。
