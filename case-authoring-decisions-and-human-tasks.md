@@ -58,14 +58,14 @@
 
 5. `Automatic Approval` ビジネスルールタスクに次のデータ割り当てを設定します。
 
-    * Data Inputs and Assignments
+    * データ入力と割り当て
 
     | Name  | データタイプ | ソース |
     |:--:|:--:|:--:|
     | htCreditCardHolder | CreditCardHolder | caseFile_creditCardHolder |
     | htFraudData | FraudData | caseFile_fraudData |
 
-    * Data Outputs and Assignments
+    * データ出力と割り当て
 
     | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|---|---|
@@ -96,7 +96,7 @@
 
     ![Business Rule Data Input Output]({% image_path business-rule-data-input-output-mapping.png %}){:width="800px"}
 
-8. Next, we want to define the actual user task. Create a _User Task_ node linked to the `Credit Risk Evaluation` rule task. Click on the `Manual Task` and add a new task. Convert the generic task into a User Task. 
+8. 次に、実際のユーザタスクを定義します。`Credit Risk Evaluation` ルールタスクにリンクした _ユーザータスク_ ノードを作成します。`Credit Risk Evaluation` をクリックし、新しいタスクを追加し、汎用タスクをユーザタスクに変換します。
 
 	![User Task Manual Approval Data Input Output]({% image_path new-user-task.png %}){:width="600px"}
 
@@ -118,7 +118,7 @@
 
     * データ出力と割り当て
 
-    | Name  | Data Type | Target |
+    | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|---|---|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
 
@@ -151,7 +151,7 @@
     * case definition: `ccd-project.ChargeDispute` 
     * Body: 
 
-      ~~~
+      ````
       {
         "case-data" : {
           "creditCardholder": {
@@ -173,7 +173,7 @@
         "case-group-assignments" : { },
         "case-data-restrictions" : { }
       }
-      ~~~
+      ````
 
 3.  ケースのプロセスインスタンスダイアグラムを開き、`Manual Approval` のユーザタスクでプロセスが待機していることを確認します。
 
