@@ -70,7 +70,6 @@
     | Name  | データタイプ | ターゲット |
     |:--:|:--:|:--:|---|---|
     | htApprovedChargeback | Boolean | caseFile_approvedChargeback |
-    | htFraudData | FraudData | caseFile_fraudData |
 
     ![User Task Manual Approval Data IO]({% image_path user-task-manual-approval-data-io.png %}){:width="800px"}
 
