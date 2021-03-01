@@ -1,31 +1,37 @@
 Red Hat Process Automation Manager / Decision Manager Workshop Module 3
 ===
-This is `module 3` of a full-day hands-on Red Hat Process Automation Manager and Red Hat Decision Manager workshop. It provides developers and/or business analysts an introduction to Rules- and Process Driven applications and microservices in the context of modern, cloud-native, architectures.
+Red Hat Process Automation Manager と Red Hat Decision Manager の ハンズオンワークショップの `モジュール 3` です。
+このワークショップでは、開発者や業務エキスパートに、最新のクラウドネイティブアーキテクチャのコンテキストでのルールおよびプロセス駆動型アプリケーションとマイクロサービスの紹介を行います。
 
 Agenda
 ===
-* Use Case Overview
-* What is Case Management
-* Case Authoring Introduction
-* Case Authoring Milestones and Stages
-* Integrating Cases with Decisions
-* Integrating Cases with Human Tasks
+* イントロダクション
+* ユースケースについて
+* ケース管理の概要
+* ユーザーとロールの設定
+* ケースプロジェクトの作成
+* ケースの作成 - マイルストーンとシグナル
+* ケース管理アプリケーションの実行
+* ケースとの統合に向けたデシジョンの準備
+* ケースにデシジョンとゲートウェイを統合する
+* ケースにヒューマンタスクを統合する
+* おわりに
 
 Run locally
 ===
 
 ```
-$ git clone https://github.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-guides.git
-$ cd rhpam-rhdm-workshop-v1m3-guides
+$ git clone https://github.com/kamorisan/rhpam-rhdm-workshop-v1m3-guides-jp.git
+$ cd rhpam-rhdm-workshop-v1m3-guides-jp
 $ docker run -it --rm -p 8081:8080 -v $(pwd):/app-data -e CONTENT_URL_PREFIX="file:///app-data" -e WORKSHOPS_URLS="file:///app-data/_rhpam-rhdm-workshop-module3.yml" -e LOG_TO_STDOUT=true quay.io/osevg/workshopper
 ```
 
 Lab Instructions on OpenShift
 ===
 
-Note that if you have installed the lab infra via APB, the lab instructions are already deployed.
+APB経由で labs-infra をインストールした場合、ラボインストラクションはすでにデプロイされていることに注意してください。
 
-Here is an example Ansible playbook to deploy the lab instruction to your OpenShift cluster manually.
+ここでは、ラボインストラクションを OpenShift クラスタに手動でデプロイするための Ansible プレイブックの例を示します。
 ```
 - name: Create Guides Module 3
   hosts: localhost
@@ -33,11 +39,11 @@ Here is an example Ansible playbook to deploy the lab instruction to your OpenSh
   - import_role:
       name: siamaksade.openshift_workshopper
     vars:
-      project_name: "guide-m1"
+      project_name: "guide-m3"
       workshopper_name: "RHPAM / RHDM Workshop V1 Module-3"
       project_suffix: "-XX"
-      workshopper_content_url_prefix: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-guides/master
-      workshopper_workshop_urls: https://raw.githubusercontent.com/RedHat-Middleware-Workshops/rhpam-rhdm-workshop-v1m3-guides/master/_rhpam-rhdm-workshop-module1.yml
+      workshopper_content_url_prefix: https://raw.githubusercontent.com/kamorisan/rhpam-rhdm-workshop-v1m3-guides-jp/main
+      workshopper_workshop_urls: https://raw.githubusercontent.com/kamorisan/rhpam-rhdm-workshop-v1m3-guides-jp/main/_rhpam-rhdm-workshop-module3.yml
       workshopper_env_vars:
         PROJECT_SUFFIX: "-XX"
         COOLSTORE_PROJECT: coolstore{{ project_suffix }}
